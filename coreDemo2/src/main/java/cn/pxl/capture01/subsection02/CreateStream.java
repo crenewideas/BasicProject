@@ -4,6 +4,7 @@ import cn.pxl.capture01.common.ReadFile;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class CreateStream{
@@ -16,8 +17,8 @@ public class CreateStream{
     //方式二：Stream.of(数组)
     public Stream<String> createStreamTwo(){
         //创建数组对应的流
-//        String[] strings = ReadFile.readFileIntoStringArray();
-//        return Stream.of(strings);
+        //String[] strings = ReadFile.readFileIntoStringArray();
+        //return Stream.of(strings);
 
         //创建一个空流
         Stream<String> empty = Stream.empty();
@@ -48,4 +49,23 @@ public class CreateStream{
 
     //方式五：iterable对象转换为流    , iterator对象结果构成的流
 
+
+    //方式6：Files.lines
+    public static void readFileLinesStream(){
+        //直接返回包含文件所有行的流对象。
+        Stream<String> stringStream = ReadFile.readFileLinesStream();
+        long count = stringStream.filter(oneStr -> oneStr.length() < 12).count();
+        System.out.println(count);
+    }
+
+    //方式7
+    public static void patternStream(){
+        String string = ReadFile.readFileString();
+        //按正则表达式将字符串分割，并返回流对象。
+        Stream<String> stringStream = Pattern.compile("\\PL+").splitAsStream(string);
+    }
+
+    public static void main(String[] args) {
+        readFileLinesStream();
+    }
 }

@@ -7,30 +7,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="mySpirngDemo" />
+        <module name="spring_security_management" />
         <module name="coreDemo2" />
         <module name="coreDemo1" />
+        <module name="hadoopDemo" />
         <module name="commonDemo" />
+        <module name="myThreadDemo" />
+        <module name="myJedisDemo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="commonDemo" target="1.7" />
-      <module name="coreDemo1" target="1.7" />
+      <module name="coreDemo1" target="1.8" />
       <module name="coreDemo2" target="8" />
-      <module name="demo" target="1.8" />
-      <module name="demo05" target="8" />
-      <module name="demo06" target="8" />
-      <module name="Demo07" target="8" />
-      <module name="demo08" target="8" />
-      <module name="demo2" target="1.8" />
-      <module name="demo3" target="1.8" />
-      <module name="demo4" target="8" />
+      <module name="hadoopDemo" target="1.8" />
+      <module name="myJedisDemo" target="1.8" />
+      <module name="mySpirngDemo" target="1.7" />
+      <module name="myThreadDemo" target="1.7" />
+      <module name="spring_security_management" target="1.8" />
     </bytecodeTargetLevel>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="demo" options="-parameters" />
-      <module name="demo2" options="-parameters" />
-      <module name="demo3" options="-parameters" />
-    </option>
   </component>
 </project>

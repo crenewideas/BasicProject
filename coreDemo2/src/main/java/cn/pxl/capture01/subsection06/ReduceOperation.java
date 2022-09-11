@@ -1,8 +1,6 @@
 package cn.pxl.capture01.subsection06;
 
 import cn.pxl.capture01.common.ReadFile;
-import javafx.concurrent.Worker;
-
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Stream;

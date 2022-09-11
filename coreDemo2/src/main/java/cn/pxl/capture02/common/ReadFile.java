@@ -34,10 +34,21 @@ public class ReadFile{
 
     public static File getFile(){
         //相对路径
-        return new File("coreDemo2\\src\\main\\java\\cn\\pxl\\capture02\\subsection01\\Word.txt");
+        return new File("coreDemo2/src/main/java/cn/pxl/capture02/subsection01/Word.txt");
+    }
+
+    public static File getFileByName(String fileName){
+        //相对路径
+        if(!fileName.contains(".")){
+            fileName = fileName + ".txt";
+        }
+        return new File("coreDemo2/src/main/java/cn/pxl/capture02/"+fileName);
     }
 
     public static void main(String[] args) {
         System.out.println(System.getProperty("user.dir"));//E:\CODE\IDEACODE\OTHERS\BasicProject
+        ///Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject
     }
+
+
 }

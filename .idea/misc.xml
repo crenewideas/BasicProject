@@ -2,6 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/demo06" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_security_management" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -10,6 +11,12 @@
         <option value="$PROJECT_DIR$/coreDemo2/pom.xml" />
         <option value="$PROJECT_DIR$/coreDemo1/pom.xml" />
         <option value="$PROJECT_DIR$/../threadDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/myThreadDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/mySpirngDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/myJedisDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_security_management/pom.xml" />
+        <option value="$PROJECT_DIR$/hadoopDemo/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: log4j:log4j:1.2.17">
+    <CLASSES>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/log4j/log4j/1.2.17/log4j-1.2.17.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/log4j/log4j/1.2.17/log4j-1.2.17-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/log4j/log4j/1.2.17/log4j-1.2.17-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
