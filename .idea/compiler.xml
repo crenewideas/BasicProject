@@ -12,6 +12,7 @@
         <module name="coreDemo2" />
         <module name="coreDemo1" />
         <module name="hadoopDemo" />
+        <module name="designPatternDemo" />
         <module name="commonDemo" />
         <module name="myThreadDemo" />
         <module name="myJedisDemo" />
@@ -21,6 +22,7 @@
       <module name="commonDemo" target="1.7" />
       <module name="coreDemo1" target="1.8" />
       <module name="coreDemo2" target="8" />
+      <module name="designPatternDemo" target="1.8" />
       <module name="hadoopDemo" target="1.8" />
       <module name="myJedisDemo" target="1.8" />
       <module name="mySpirngDemo" target="1.7" />
