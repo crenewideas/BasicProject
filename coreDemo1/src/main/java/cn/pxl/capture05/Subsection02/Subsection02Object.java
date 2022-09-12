@@ -1,4 +1,4 @@
-package cn.pxl.capture05;
+package cn.pxl.capture05.Subsection02;
 
 import cn.pxl.capture05.common.Manager;
 
@@ -29,7 +29,7 @@ public class Subsection02Object {
         StringBuilder StringBuilderOk = new StringBuilder(ok);
         System.out.println(ok.hashCode() + " -- " + StringBuilderOk.hashCode()); //2556 -- 1625635731
 
-        //
+        // equals 与 hashCode 的定义内必须相容。 如 比较返回 true 那么哈希值也应该返回相同的结果。
     }
 
 }

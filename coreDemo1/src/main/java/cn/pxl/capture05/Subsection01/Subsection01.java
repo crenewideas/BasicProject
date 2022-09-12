@@ -1,4 +1,4 @@
-package cn.pxl.capture05;
+package cn.pxl.capture05.Subsection01;
 
 import cn.pxl.capture05.common.Employee;
 import cn.pxl.capture05.common.Manager;
