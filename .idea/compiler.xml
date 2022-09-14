@@ -14,8 +14,8 @@
         <module name="hadoopDemo" />
         <module name="designPatternDemo" />
         <module name="commonDemo" />
-        <module name="myThreadDemo" />
         <module name="myJedisDemo" />
+        <module name="myThreadDemo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -26,7 +26,7 @@
       <module name="hadoopDemo" target="1.8" />
       <module name="myJedisDemo" target="1.8" />
       <module name="mySpirngDemo" target="1.7" />
-      <module name="myThreadDemo" target="1.7" />
+      <module name="myThreadDemo" target="8" />
       <module name="spring_security_management" target="1.8" />
     </bytecodeTargetLevel>
   </component>
