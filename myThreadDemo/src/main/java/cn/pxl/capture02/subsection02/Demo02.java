@@ -1,11 +1,11 @@
-package cn.pxl.capture02.secondDemo;
+package cn.pxl.capture02.subsection02;
 //多个锁就是异步执行的。（见synchronized(anyThing)）
 
 //当前线程名称：{Thread-0},在{1650176927223}进入代码块。
 //设置名称完毕，休息3000ms
 //当前线程名称：{Thread-1},在{1650176927223}进入代码块。
 //。。。。。。
-public class Demo09 {
+public class Demo02 {
       public static void main(String[] args) {
         ServiceDemo29 serviceDemo29 = new ServiceDemo29();
         Thread threadA = new Thread(new ThreadA29(serviceDemo29));

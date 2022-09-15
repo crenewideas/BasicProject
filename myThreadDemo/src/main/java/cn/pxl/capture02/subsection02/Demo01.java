@@ -1,6 +1,6 @@
-package cn.pxl.capture02.secondDemo;
+package cn.pxl.capture02.subsection02;
 
-public class Demo08 {
+public class Demo01 {
     //在this作为锁对象时：多个线程调用同一个对象的不同名称的同步方法或同步代码块，调用是按顺序执行的。
     //同一个时间，只会有一个线程执行同步代码块或同步方法。
     //同步代码块或同步方法，彼此之间的执行是同步的，而非异步。
