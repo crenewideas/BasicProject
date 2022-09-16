@@ -202,12 +202,8 @@ public class Capture01Test
         Demo10 demo10One = new Demo10();
         Demo10 demo10Two = new Demo10();
         //两个线程，分别调用了了两个不同对象的静态同步方法，由于静态方法锁的是类，所以两个线程会同步执行。
-        new Thread(()->{
-            demo10One.doNotStaticDemo();
-        }).start();
-        new Thread(()->{
-            demo10Two.doNotStaticDemo();
-        }).start();
+        new Thread(demo10One::doNotStaticDemo).start();
+        new Thread(demo10Two::doNotStaticDemo).start();
         //当前线程：Thread-0开始
         //当前线程：Thread-0结束
         //当前线程：Thread-1开始
@@ -222,12 +218,8 @@ public class Capture01Test
         Demo11 demo11 = new Demo11();
 
         //两个线程，分别调用了相同对象的同步代码块，由于锁对象是String 类型，如果锁的是常量池中的相同字符串，那么会同步执行。
-        new Thread(()->{
-            demo11.doStringDemo01();
-        }).start();
-        new Thread(()->{
-            demo11.doStringDemo02();
-        }).start();
+        new Thread(demo11::doStringDemo01).start();
+        new Thread(demo11::doStringDemo02).start();
         //当前线程：Thread-0开始
         //当前线程：Thread-0结束
         //当前线程：Thread-1开始
