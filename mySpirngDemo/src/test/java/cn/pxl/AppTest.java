@@ -3,14 +3,14 @@ package cn.pxl;
 import static org.junit.Assert.assertTrue;
 
 import cn.aop.service.MyInvocationHandler;
-import cn.aop.service.UserService;
 import cn.aop.service.impl.UserServiceImpl;
 import cn.pxl.bean.MyTestBean;
+import cn.pxl.entity.User;
+import cn.pxl.jdbc.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
-
-import java.net.Proxy;
 
 /**
  * Unit test for simple App.
@@ -39,8 +39,17 @@ public class AppTest
     @Test
     public void doProxyTest(){
         MyInvocationHandler myInvocationHandler = new MyInvocationHandler(new UserServiceImpl());
-        UserService proxyObj = (UserService) myInvocationHandler.getProxyObj();
+        cn.aop.service.UserService proxyObj = (cn.aop.service.UserService) myInvocationHandler.getProxyObj();
         proxyObj.saveUser();
+    }
+
+    @Test
+    public void doJdbcTest(){
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("beanConfig/capture02Basic.xml");
+        UserService userService = (UserService) classPathXmlApplicationContext.getBean("userService");
+        User user = new User("3", "e", "e", "e", "e", "e");
+        userService.save(user);
+        System.out.println(userService.selectAll());
     }
 
 }
