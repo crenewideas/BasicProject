@@ -4,6 +4,9 @@ import cn.pxl.capture03.subsection01.Cap3Demo02;
 import cn.pxl.capture03.subsection01.Cap3Demo03;
 import org.junit.Test;
 
+import java.io.*;
+import java.util.Arrays;
+
 /**
  * Unit test for simple App.
  */
@@ -405,28 +408,62 @@ public class Capture03Test
 
 
 
+
+    //管道流是比较特殊的流，可以用于线程之间的通信。
+    //一个线程发送数据到输出管道，另外一个线程从输入管道读取数据。使用管道，可以实现不同线程之间的直接通信。
+    //piped(管道)   可以进行线程通信的管道流类有四个：
+    // 字符流：PipedInputStream、PipedOutputStream、
+    // 字节流：PipedReader、PipedWriter
+
     //管道进行线程通信 ——> 字节流
     @Test
-    public void doDemo11(){
+    public void doDemo12(){
         //1.多线程共享对象
-        String lock = "";
+        PipedInputStream pipedInputStream = new PipedInputStream();
+        PipedOutputStream pipedOutputStream = new PipedOutputStream();
+        //使得 输入管道流和输出管道流之间建立连接
+        try {
+            pipedInputStream.connect(pipedOutputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //1-1000 从 ThreadA 输出到管道中。
         new Thread(()->{
-            synchronized (lock){
+            try {
+                for (int i = 0; i < 100; i++) {
+                    System.out.println("当前线程：" + Thread.currentThread().getName() + "已将" + i + "输出到管道流中。");
+                    pipedOutputStream.write(i);
+                }
+            }catch (IOException e) {
+                e.printStackTrace();
+            } finally {
                 try {
-                    lock.wait();
-                    System.out.println("当前线程：" + Thread.currentThread().getName() + "");
-                } catch (InterruptedException e) {
+                    //如果不最后close掉，那么最终会有个报错：IOException : Write end dead
+                    pipedOutputStream.close();
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
+            System.out.println("输出完毕");
         },"ThreadA").start();
-
-        new Thread(()->{
-            synchronized (lock){
-                lock.notifyAll();
-                System.out.println("当前线程：" + Thread.currentThread().getName() + "");
+        try {
+            Thread.sleep(1000);
+            byte[] bytes = new byte[20];
+            int read = pipedInputStream.read(bytes);
+            while (read != -1){
+                System.out.println(Arrays.toString(bytes));
+                read = pipedInputStream.read(bytes);
             }
-        },"ThreadB").start();
+        } catch (InterruptedException | IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                pipedInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
@@ -434,9 +471,50 @@ public class Capture03Test
         }
     }
 
+
+    //管道流是比较特殊的流，可以用于线程之间的通信。
     //管道进行线程通信 ——> 字符流
     @Test
-    public void doDemo12(){
+    public void doDemo11() throws IOException, InterruptedException {
+        PipedReader pipedReader = new PipedReader();
+        PipedWriter pipedWriter = new PipedWriter();
+        pipedReader.connect(pipedWriter);
+        //新起线程 将字符送到 管道输出流中
+        new Thread(()->{
+            char a = '啊';
+            char b = '波';
+            char c = '次';
+            char[] chars = {a,b,c};
+            try {
+                for (int i = 0; i < 40; i++) {
+                    System.out.println("当前线程：" + Thread.currentThread().getName() + "已第" + i + "次将[" +Arrays.toString(chars)+"]输出到管道流中。");
+                    pipedWriter.write(chars);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    pipedWriter.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        },"ThreadA").start();
+
+        //当前线程从管道输入流中获取ThreadA的结果。
+        Thread.sleep(2000);
+        char[] chars = new char[5];
+        int readCount = pipedReader.read(chars);
+        while (readCount !=-1){
+            System.out.println(chars);
+            readCount = pipedReader.read(chars);
+        }
+        Thread.sleep(10000);
+
+    }
+
+    @Test
+    public void doDemo13(){
         //1.多线程共享对象
         String lock = "";
         new Thread(()->{
