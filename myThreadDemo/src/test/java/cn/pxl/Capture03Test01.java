@@ -2,6 +2,7 @@ package cn.pxl;
 import cn.pxl.capture03.subsection01.Cap3Demo01;
 import cn.pxl.capture03.subsection01.Cap3Demo02;
 import cn.pxl.capture03.subsection01.Cap3Demo03;
+import cn.pxl.capture03.subsection01.Cap3Demo04;
 import org.junit.Test;
 
 import java.io.*;
@@ -10,7 +11,7 @@ import java.util.Arrays;
 /**
  * Unit test for simple App.
  */
-public class Capture03Test
+public class Capture03Test01
 {
     // while 循环机制，来实现多个线程之间的通信。非常浪费cpu资源，而且不具有普适性，不能每一个通信都加一个while循环。
     @Test
@@ -513,27 +514,25 @@ public class Capture03Test
 
     }
 
+    //实现双线程交替输出，协作完成任务
     @Test
     public void doDemo13(){
+        //⭐️
+        //🟥
+        //⭐️
+        //🟥
+        //⭐️
+        //🟥
+        //⭐️
+        //🟥
+        //⭐️
+        //🟥
+
         //1.多线程共享对象
         String lock = "";
-        new Thread(()->{
-            synchronized (lock){
-                try {
-                    lock.wait();
-                    System.out.println("当前线程：" + Thread.currentThread().getName() + "");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        },"ThreadA").start();
-
-        new Thread(()->{
-            synchronized (lock){
-                lock.notifyAll();
-                System.out.println("当前线程：" + Thread.currentThread().getName() + "");
-            }
-        },"ThreadB").start();
+        Cap3Demo04 cap3Demo04 = new Cap3Demo04(lock);
+        new Thread(cap3Demo04.soutOne,"ThreadA").start();
+        new Thread(cap3Demo04.soutTwo,"ThreadB").start();
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
