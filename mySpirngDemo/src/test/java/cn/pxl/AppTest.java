@@ -47,7 +47,7 @@ public class AppTest
     public void doJdbcTest(){
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("beanConfig/capture02Basic.xml");
         UserService userService = (UserService) classPathXmlApplicationContext.getBean("userService");
-        User user = new User("3", "e", "e", "e", "e", "e");
+        User user = new User("4", "e", "e", "e", "e", "e");
         userService.save(user);
         System.out.println(userService.selectAll());
     }

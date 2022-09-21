@@ -24,6 +24,8 @@ public class UserServiceImpl implements UserService {
             user.getAcctNbr(),
             user.getIdNo(),
             user.getMobileNbr());
+        //测试事务是否生效
+        throw new RuntimeException("aa");
     }
 
     @Override

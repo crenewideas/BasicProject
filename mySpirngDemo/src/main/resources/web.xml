@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>SpringMvc</display-name>
+<!--  使用ContextLoaderListener配置时，指定Spring配置文件的位置  -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+<!--  SpringMVC的前端控制器  -->
+<!--  当DispatcherServlet载入后，他将从一个XML文件中载入Spring的应用上下文，该XML文件的名字取决于servlet-name  -->
+    <servlet>
+        <servlet-name>SpringMvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpringMvc</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+<!--  配置上下文载入器，作用是启动Web容器时，自动加载context-param中的配置信息。 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+</web-app>
