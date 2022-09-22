@@ -8,10 +8,10 @@
       <module fileurl="file://$PROJECT_DIR$/coreDemo2/coreDemo2.iml" filepath="$PROJECT_DIR$/coreDemo2/coreDemo2.iml" />
       <module fileurl="file://$PROJECT_DIR$/designPatternDemo/designPatternDemo.iml" filepath="$PROJECT_DIR$/designPatternDemo/designPatternDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/hadoopDemo/hadoopDemo.iml" filepath="$PROJECT_DIR$/hadoopDemo/hadoopDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myJVMDemo/myJVMDemo.iml" filepath="$PROJECT_DIR$/myJVMDemo/myJVMDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/myJedisDemo/myJedisDemo.iml" filepath="$PROJECT_DIR$/myJedisDemo/myJedisDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/mySpirngDemo/mySpirngDemo.iml" filepath="$PROJECT_DIR$/mySpirngDemo/mySpirngDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/myThreadDemo/myThreadDemo.iml" filepath="$PROJECT_DIR$/myThreadDemo/myThreadDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring_security_management/spring_security_management.iml" filepath="$PROJECT_DIR$/spring_security_management/spring_security_management.iml" />
       <module fileurl="file://$PROJECT_DIR$/../threadDemo/threadDemo.iml" filepath="$PROJECT_DIR$/../threadDemo/threadDemo.iml" />
     </modules>
   </component>
