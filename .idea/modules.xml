@@ -3,14 +3,19 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/BasicProject.iml" filepath="$PROJECT_DIR$/.idea/BasicProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/atchetypeDemo/atchetypeDemo.iml" filepath="$PROJECT_DIR$/atchetypeDemo/atchetypeDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonDemo/commonDemo.iml" filepath="$PROJECT_DIR$/commonDemo/commonDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/coreDemo1/coreDemo1.iml" filepath="$PROJECT_DIR$/coreDemo1/coreDemo1.iml" />
       <module fileurl="file://$PROJECT_DIR$/coreDemo2/coreDemo2.iml" filepath="$PROJECT_DIR$/coreDemo2/coreDemo2.iml" />
       <module fileurl="file://$PROJECT_DIR$/designPatternDemo/designPatternDemo.iml" filepath="$PROJECT_DIR$/designPatternDemo/designPatternDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/hadoopDemo/hadoopDemo.iml" filepath="$PROJECT_DIR$/hadoopDemo/hadoopDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myEmailDemo/myEmailDemo.iml" filepath="$PROJECT_DIR$/myEmailDemo/myEmailDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/myJVMDemo/myJVMDemo.iml" filepath="$PROJECT_DIR$/myJVMDemo/myJVMDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/myJedisDemo/myJedisDemo.iml" filepath="$PROJECT_DIR$/myJedisDemo/myJedisDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myMavenDemo/myMavenDemo.iml" filepath="$PROJECT_DIR$/myMavenDemo/myMavenDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myMavenPluginDemo/myMavenPluginDemo.iml" filepath="$PROJECT_DIR$/myMavenPluginDemo/myMavenPluginDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/mySpirngDemo/mySpirngDemo.iml" filepath="$PROJECT_DIR$/mySpirngDemo/mySpirngDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringBootDemo/mySpringBootDemo.iml" filepath="$PROJECT_DIR$/mySpringBootDemo/mySpringBootDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/myThreadDemo/myThreadDemo.iml" filepath="$PROJECT_DIR$/myThreadDemo/myThreadDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/../threadDemo/threadDemo.iml" filepath="$PROJECT_DIR$/../threadDemo/threadDemo.iml" />
     </modules>

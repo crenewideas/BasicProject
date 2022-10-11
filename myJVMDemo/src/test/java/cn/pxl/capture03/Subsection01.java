@@ -106,7 +106,7 @@ public class Subsection01 {
                 }
             }
         },"threadB").start();
-        Thread.sleep(20000);
+        Thread.sleep(200000);
     }
 
 

@@ -7,28 +7,44 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mySpirngDemo" />
         <module name="myJVMDemo" />
-        <module name="coreDemo2" />
+        <module name="myMavenDemo" />
         <module name="coreDemo1" />
         <module name="hadoopDemo" />
         <module name="designPatternDemo" />
-        <module name="commonDemo" />
         <module name="myJedisDemo" />
+        <module name="mySpirngDemo" />
+        <module name="myMavenPluginDemo" />
+        <module name="mySpringBootDemo" />
+        <module name="coreDemo2" />
+        <module name="myEmailDemo" />
+        <module name="commonDemo" />
         <module name="myThreadDemo" />
+        <module name="atchetypeDemo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="atchetypeDemo" target="1.5" />
       <module name="commonDemo" target="1.7" />
       <module name="coreDemo1" target="1.8" />
       <module name="coreDemo2" target="8" />
       <module name="designPatternDemo" target="1.8" />
       <module name="hadoopDemo" target="1.8" />
+      <module name="myAtchetypeDemo" target="1.5" />
+      <module name="myEmailDemo" target="1.7" />
       <module name="myJedisDemo" target="1.8" />
       <module name="myJVMDemo" target="8" />
+      <module name="myMavenDemo" target="8" />
+      <module name="myMavenPluginDemo" target="8" />
       <module name="mySpirngDemo" target="1.7" />
-      <module name="myThreadDemo" target="8" />
+      <module name="mySpringBootDemo" target="1.8" />
+      <module name="myThreadDemo" target="1.7" />
       <module name="spring_security_management" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="mySpringBootDemo" options="-parameters" />
+    </option>
   </component>
 </project>

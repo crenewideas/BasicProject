@@ -18,6 +18,11 @@
         <option value="$PROJECT_DIR$/designPatternDemo/pom.xml" />
         <option value="$PROJECT_DIR$/myThreadDemo/pom.xml" />
         <option value="$PROJECT_DIR$/myJVMDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/myMavenDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/myEmailDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/mySpringBootDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/myMavenPluginDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/atchetypeDemo/pom.xml" />
       </list>
     </option>
   </component>
