@@ -15,12 +15,12 @@ public class DataBasePropertiesBean {
     private String driver;
     @Value("${database.url}")
     public void setUrl(String url) {
-        System.out.println("setUrl :" + url);
+        //System.out.println("setUrl :" + url);
         this.url = url;
     }
     @Value("${database.driver}")
     public void setDriver(String driver) {
-        System.out.println("setDriver :" + driver);
+        //System.out.println("setDriver :" + driver);
         this.driver = driver;
     }
 }

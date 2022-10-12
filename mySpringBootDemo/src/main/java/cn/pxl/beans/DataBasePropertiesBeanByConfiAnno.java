@@ -15,22 +15,22 @@ public class DataBasePropertiesBeanByConfiAnno {
     private String driver;
 
     public void setUserName(String userName) {
-        System.out.println("userName"+userName);
+        //System.out.println("userName"+userName);
         this.userName = userName;
     }
 
     public void setPassWord(String passWord) {
-        System.out.println("passWord"+passWord);
+        //System.out.println("passWord"+passWord);
         this.passWord = passWord;
     }
 
     public void setUrl(String url) {
-        System.out.println("url"+url);
+        //System.out.println("url"+url);
         this.url = url;
     }
 
     public void setDriver(String driver) {
-        System.out.println("driver"+driver);
+        //System.out.println("driver"+driver);
         this.driver = driver;
     }
 }
