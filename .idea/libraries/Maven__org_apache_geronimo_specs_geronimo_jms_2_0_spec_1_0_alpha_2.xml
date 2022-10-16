@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.geronimo.specs:geronimo-jms_2.0_spec:1.0-alpha-2">
+    <CLASSES>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/apache/geronimo/specs/geronimo-jms_2.0_spec/1.0-alpha-2/geronimo-jms_2.0_spec-1.0-alpha-2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/apache/geronimo/specs/geronimo-jms_2.0_spec/1.0-alpha-2/geronimo-jms_2.0_spec-1.0-alpha-2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/apache/geronimo/specs/geronimo-jms_2.0_spec/1.0-alpha-2/geronimo-jms_2.0_spec-1.0-alpha-2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
