@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface JpaCustRepository extends JpaRepository<Cust,Integer> {
 
-    public List<Cust> findByCustNameLike(String name);
-
+//    public List<Cust> findByCustNameLike(String name);
+//
+//    List<Cust> insertCust(List<Cust> custs);
 }

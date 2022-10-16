@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/atchetypeDemo/src/main/resources/archetype-resources" includeSubdirectories="true" />
+    </excludeFromCompile>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
@@ -16,6 +19,7 @@
         <module name="mySpirngDemo" />
         <module name="myMavenPluginDemo" />
         <module name="mySpringBootDemo" />
+        <module name="mySpringBootDemo2" />
         <module name="coreDemo2" />
         <module name="myEmailDemo" />
         <module name="commonDemo" />
@@ -38,6 +42,7 @@
       <module name="myMavenPluginDemo" target="8" />
       <module name="mySpirngDemo" target="1.7" />
       <module name="mySpringBootDemo" target="1.8" />
+      <module name="mySpringBootDemo2" target="1.8" />
       <module name="myThreadDemo" target="1.7" />
       <module name="spring_security_management" target="1.8" />
     </bytecodeTargetLevel>
@@ -45,6 +50,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="mySpringBootDemo" options="-parameters" />
+      <module name="mySpringBootDemo2" options="-parameters" />
     </option>
   </component>
 </project>
