@@ -1,4 +1,4 @@
-package cn.pxl.dataStructure.demo01;
+package cn.pxl.dataStructure.intf;
 
 public interface MyArrayListInterface <E> {
     //向数组尾部添加一个元素

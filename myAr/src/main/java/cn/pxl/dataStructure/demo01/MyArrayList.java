@@ -2,10 +2,11 @@ package cn.pxl.dataStructure.demo01;
 
 import cn.pxl.dataStructure.demo01.exc.MyException;
 import cn.pxl.dataStructure.demo01.exc.MyExceptionCode;
+import cn.pxl.dataStructure.intf.MyArrayListInterface;
 
 import java.util.Arrays;
 
-public class MyArrayList<E> implements MyArrayListInterface<E>{
+public class MyArrayList<E> implements MyArrayListInterface<E> {
 
     private static final int DEFAULT_SIZE = 10;
 
