@@ -38,12 +38,13 @@ public class MyLinkedList<E> implements MyArrayListInterface<E> {
 
     @Override
     public void add(int index, E element) {
-        size ++;
+
         Node node = new Node();
         node.data = element;
         checkIndex(index);
         if(size <= 0){
             headNode = node;
+            size ++;
             return;
         }
         //向链表头部插入元素
@@ -52,6 +53,7 @@ public class MyLinkedList<E> implements MyArrayListInterface<E> {
             node.afterNode = headNode;
             node.beforeNode = null;
             headNode = node;
+            size ++;
             return;
 
         //向链表尾部插入元素。
@@ -65,6 +67,7 @@ public class MyLinkedList<E> implements MyArrayListInterface<E> {
             lastNode.afterNode = node;
             node.beforeNode = lastNode;
             node.afterNode = null;
+            size ++;
             return;
         }
         //这里说明是向链表中插入中间元素。
@@ -77,10 +80,14 @@ public class MyLinkedList<E> implements MyArrayListInterface<E> {
         node.beforeNode = nextNode;
         node.afterNode = nextNextNode;
         nextNextNode.beforeNode = node;
+        size ++;
     }
 
     @Override
     public E remove(int index) {
+        if(index == size){
+
+        }
         return null;
     }
 

@@ -33,12 +33,12 @@ public class MyLinkedListLearning<E> extends AbstractList<E> {
 
     @Override
     public void add(int index, E element) {
-        size ++;
         Node<E> newNode ;
         //头部添加元素，进行特殊处理。
         if(index == 0){
             newNode = new Node<>(null,element,headNode);
             headNode = newNode;
+            size ++;
             return;
         }
         //尾部添加一个元素，进行特殊处理
@@ -47,6 +47,7 @@ public class MyLinkedListLearning<E> extends AbstractList<E> {
             Node<E> finalNode = node(index - 1);
             newNode = new Node<>(finalNode,element,null);
             finalNode.afterNode = newNode;
+            size ++;
             return;
         }
         //非头非尾部元素的添加
@@ -56,11 +57,11 @@ public class MyLinkedListLearning<E> extends AbstractList<E> {
         newNode = new Node<>(privateNode,element,currentNode);
         privateNode.afterNode = newNode;
         privateNode.beforeNode = currentNode;
+        size ++;
     }
 
     @Override
     public E remove(int index) {
-        size --;
         Node<E> currentNode = node(index);
         E oldElement;
         //头元素删除，并且size > 0(node方法中已经校验过了)
@@ -69,6 +70,7 @@ public class MyLinkedListLearning<E> extends AbstractList<E> {
             if(size == 1){
                 oldElement = headNode.element;
                 headNode = null;
+                size --;
                 return oldElement;
             //大于一个元素。
             } else {
@@ -76,6 +78,7 @@ public class MyLinkedListLearning<E> extends AbstractList<E> {
                 Node<E> nextNode = headNode.afterNode;
                 headNode = nextNode;
                 headNode.beforeNode = null;
+                size --;
                 return oldElement;
             }
         //尾元素删除
@@ -84,6 +87,7 @@ public class MyLinkedListLearning<E> extends AbstractList<E> {
             Node<E> previousNode = currentNode.beforeNode;
             previousNode.afterNode = null;
             currentNode.beforeNode = null;
+            size --;
             return oldElement;
         }
         //中间元素删除
@@ -94,6 +98,7 @@ public class MyLinkedListLearning<E> extends AbstractList<E> {
         nextNode.beforeNode = previousNode;
         currentNode.beforeNode = null;
         currentNode.afterNode = null;
+        size --;
         return null;
     }
 
