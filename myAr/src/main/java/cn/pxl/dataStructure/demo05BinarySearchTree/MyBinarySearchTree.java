@@ -181,7 +181,7 @@ public class MyBinarySearchTree<E> implements MyTree<E>, BinaryTreeInfo {
         }
     }
 
-    //利用层序遍历计算二叉树的高度
+    //计算二叉树高度方式一：利用层序遍历计算二叉树的高度
     public int levelOrderTraversalHeight(){
         Queue<Node<E>> oneQueue = new LinkedList<>();
         oneQueue.add(rootNode);
@@ -210,7 +210,7 @@ public class MyBinarySearchTree<E> implements MyTree<E>, BinaryTreeInfo {
         return height;
     }
 
-    //利用层序遍历计算二叉树的高度
+    //计算二叉树高度方式二：利用递归方式计算二叉树的高度
     public int height(Node<E> node){
         //如果是叶子结点 的左右子节点，则返回0。
         if(node == null) return 0;
@@ -221,6 +221,71 @@ public class MyBinarySearchTree<E> implements MyTree<E>, BinaryTreeInfo {
         //当前节点的左右子树的高度都计算后，取二者的较大值 + 1，作为当前节点的高度。
         int max = Math.max(leftHeight, rightHeight);
         return max +1;
+    }
+
+//    //判断当前树是否是完全二叉树：层序遍历方式一，复杂写法。
+//    public boolean isCompleteBinaryTree(){
+//        Queue<Node<E>> queue = new LinkedList<>();
+//        if(rootNode == null) return false;
+//        queue.add(rootNode);
+//        boolean flag = false;
+//        while (!queue.isEmpty()){
+//            Node<E> pollNode = queue.poll();
+//            //已经到了分界点，之后还有非叶子节点，那么 不是完全二叉树。
+//            if(flag && !pollNode.isLeaf()){
+//                return false;
+//            }
+//            //度为二，直接入队。
+//            if(pollNode.hasTwoChild()){
+//                queue.add(pollNode.leftNode);
+//                queue.add(pollNode.rightNode);
+//
+//            //度为1的一种情况：当前节点只存在右节点，明显不是完全二叉树。
+//            }else if(pollNode.hasRightChild()){
+//                return false;
+//
+//            //当前节点只存在左节点，或者当前节点为叶子节点：这时，这个节点的接下来所有的节点的度都必须为0，否则就不是完全二叉树。
+//            }else {
+//                //只存在左子节点，左子节点入队。
+//                if(pollNode.hasLeftChild()){
+//                    queue.add(pollNode.leftNode);
+//                }
+//                flag = true;
+//            }
+//        }
+//        return true;
+//    }
+
+    //完全二叉树的判断方式，简洁写法：
+    public boolean isCompleteBinaryTree(){
+        Queue<Node<E>> queue = new LinkedList<>();
+        if(rootNode == null) return false;
+        queue.add(rootNode);
+        boolean flag = false;
+        while (!queue.isEmpty()) {
+            Node<E> pollNode = queue.poll();
+
+            if(flag && !pollNode.isLeaf()){
+                return false;
+            }
+
+            if(pollNode.leftNode != null){
+                queue.add(pollNode.leftNode);
+
+            //当前节点只有右子节点，不是完全二叉树
+            }else if(pollNode.rightNode != null){
+                return false;
+            }
+
+            if(pollNode.rightNode != null){
+                queue.add(pollNode.rightNode);
+
+            //当前节点只有左子节点，或当前节点是叶子节点
+            }else {
+                flag =true;
+            }
+        }
+        return true;
     }
 
     //打印当前二叉树
@@ -271,6 +336,23 @@ public class MyBinarySearchTree<E> implements MyTree<E>, BinaryTreeInfo {
             this.element = element;
             this.parentNode = parentNode;
         }
+
+        public boolean isLeaf(){
+            return leftNode == null && rightNode == null;
+        }
+
+        public boolean hasTwoChild(){
+            return leftNode != null && rightNode != null;
+        }
+
+        public boolean hasLeftChild(){
+            return leftNode != null && rightNode == null;
+        }
+
+        public boolean hasRightChild(){
+            return leftNode == null && rightNode != null;
+        }
+
     }
 
 }
