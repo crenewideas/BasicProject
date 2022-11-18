@@ -1,198 +1,52 @@
-package cn.pxl.dataStructure.demo05BinarySearchTree;
+package cn.pxl.dataStructure.common;
 
-import cn.pxl.dataStructure.common.MyTree;
 import cn.pxl.dataStructure.common.printer.BinaryTreeInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.awt.color.ProfileDataException;
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-//二叉搜索树
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class MyBinarySearchTree<E> implements MyTree<E>, BinaryTreeInfo {
+@ToString
+public abstract class MyBinaryTree<E> implements MyTree<E> , BinaryTreeInfo {
 
-    private int size;
+    protected int size;
 
-    private Node<E> rootNode;
-
-    private Comparator<E> comparator;
-
-    public MyBinarySearchTree(Comparator<E> comparator) {
-        this.comparator = comparator;
-    }
-
-    @Override
-    public int size() {
-        return 0;
-    }
+    protected Node<E> rootNode;
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
     public void clear() {
-
+        rootNode = null;
     }
 
     @Override
-    public void add(E element) {
-        elementNotNullCheck(element);
-        //根节点：
-        if(rootNode == null){
-            rootNode = new Node<>(element,null);
-            size ++;
-            return;
-        }
-        //非根节点：
-        Node<E> oneNode = rootNode;
-        Node<E> parentNode = rootNode;
-        int comp = 0;
-        while (oneNode != null){
-            comp = compareNodeElement(element, oneNode.element);
-            parentNode = oneNode;
-            if(comp < 0 ){
-                oneNode = oneNode.leftNode;
-            }else if(comp > 0){
-                oneNode = oneNode.rightNode;
-            }else {
-                oneNode = null;
-            }
-        }
-        Node<E> newNode = new Node<>(element, parentNode);
-        if(comp > 0){
-            parentNode.rightNode = newNode;
-        } else if(comp < 0 ){
-            parentNode.leftNode = newNode;
-        }else {
-            //如果相同，进行覆盖，这是因为自定义对象可能存在比较相同，但其他属性不同的情况。
-            parentNode.element = element;
-        }
-        size ++;
-    }
-
-    @Override
-    public void remove(E element) {
-        Node<E> node = node(element);
-        remove(node);
-    }
-
-    //根据元素找到节点对象。
-    private Node<E> node(E element){
-        Node<E> rootNode = getRootNode();
-        while (rootNode != null){
-            int comp = compareNodeElement(rootNode.element, element);
-            if(comp == 0) return rootNode;
-
-            if(comp > 0){
-                rootNode = rootNode.rightNode;
-            } else {
-                rootNode = rootNode.leftNode;
-            }
-        }
-        return null;
-    }
-
-    private void remove(Node<E> node){
-        if(node == null) return;
-        size --;
-        //删除度为2的节点
-        if(node.hasTwoChild()){
-            //Node<E> predecessorNode = predecessor(node);
-            Node<E> postDecessorNode = postdecessor(node);
-            //用后继节点的值，覆盖当前度为 2 的节点的值。
-            node.element = postDecessorNode.element;
-            //将node引用指向新的要删除的后继节点。要删除的后继节点的度一定为1或者0。
-            node = postDecessorNode;
-        }
-
-        //到这里，node的度必定为0或者1。
-        Node<E> replacementNode = node.leftNode != null ? node.leftNode : node.rightNode;
-        if(replacementNode != null){
-            //更改parent
-            replacementNode.parentNode = node.parentNode;
-            //更改parent的left或者right；
-            if(node.parentNode == null){
-                rootNode = replacementNode;
-            }else if(node == node.parentNode.leftNode){
-                node.parentNode.leftNode = replacementNode;
-            }else {
-                node.parentNode.rightNode = replacementNode;
-            }
-
-        //叶子节点
-        }else {
-            //叶子节点没有根节点
-            if(node.parentNode == null){
-                rootNode = null;
-                return;
-            }
-            //叶子节点有根节点。
-            if(node == node.parentNode.rightNode){
-                node.parentNode.rightNode = null;
-            }else {
-                node.parentNode.leftNode = null;
-            }
-        }
-
-    }
-
-
-
-    @Override
-    public boolean contains(E element) {
-        Node<E> rootNode = getRootNode();
-        while (rootNode != null){
-            int comp = compareNodeElement(rootNode.element, element);
-            if(comp == 0) return false;
-            if(comp > 0){
-                rootNode = rootNode.rightNode;
-            } else {
-                rootNode = rootNode.leftNode;
-            }
-        }
-        return false;
+    public int size() {
+        return size;
     }
 
     //判断是否是叶子节点：
-    private boolean isLeafNode(Node<E> node){
+    protected boolean isLeafNode(Node<E> node){
         return node != null && node.leftNode == null && node.rightNode == null;
     }
 
-    //比较节点中值和传入的值的大小
-    // < 0  : element1 < element2
-    // = 0  : element1 = element2
-    // > 0  : element1 > element2
-    private int compareNodeElement(E element1,E element2){
-        if(comparator != null){
-            return comparator.compare(element1,element2);
-        }
-        if(element1 instanceof Comparable){
-            Comparable<E> comparableElement1 = (Comparable<E>)element1;
-            return comparableElement1.compareTo(element2);
-        }
-        throw new RuntimeException("添加类型必须实现Comparable接口，或定义Comparator比较器");
-    };
-
-    private void nodeNotNullCheck(Node<E> node){
+    protected void nodeNotNullCheck(Node<E> node){
         if(node == null){
             throw new IllegalArgumentException("节点不能为空！");
         }
     }
 
-    private void elementNotNullCheck(E element){
+    protected void elementNotNullCheck(E element){
         if(element == null){
             throw new IllegalArgumentException("节点不能为空！");
         }
@@ -297,7 +151,7 @@ public class MyBinarySearchTree<E> implements MyTree<E>, BinaryTreeInfo {
     }
 
     //计算二叉树的前驱节点
-    private Node<E> predecessor(Node<E> node){
+    protected Node<E> predecessor(Node<E> node){
         if(node == null){
             return null;
         }
@@ -326,7 +180,7 @@ public class MyBinarySearchTree<E> implements MyTree<E>, BinaryTreeInfo {
 
 
     //计算二叉树的后继节点
-    private Node<E> postdecessor(Node<E> node){
+    protected Node<E> postdecessor(Node<E> node){
         if(node == null){
             return null;
         }
@@ -344,7 +198,7 @@ public class MyBinarySearchTree<E> implements MyTree<E>, BinaryTreeInfo {
         }
     }
 
-//    //判断当前树是否是完全二叉树：层序遍历方式一，复杂写法。
+    //    //判断当前树是否是完全二叉树：层序遍历方式一，复杂写法。
 //    public boolean isCompleteBinaryTree(){
 //        Queue<Node<E>> queue = new LinkedList<>();
 //        if(rootNode == null) return false;
@@ -377,37 +231,6 @@ public class MyBinarySearchTree<E> implements MyTree<E>, BinaryTreeInfo {
 //        return true;
 //    }
 
-    //完全二叉树的判断方式，简洁写法：
-    public boolean isCompleteBinaryTree(){
-        Queue<Node<E>> queue = new LinkedList<>();
-        if(rootNode == null) return false;
-        queue.add(rootNode);
-        boolean flag = false;
-        while (!queue.isEmpty()) {
-            Node<E> pollNode = queue.poll();
-
-            if(flag && !pollNode.isLeaf()){
-                return false;
-            }
-
-            if(pollNode.leftNode != null){
-                queue.add(pollNode.leftNode);
-
-            //当前节点只有右子节点，不是完全二叉树
-            }else if(pollNode.rightNode != null){
-                return false;
-            }
-
-            if(pollNode.rightNode != null){
-                queue.add(pollNode.rightNode);
-
-            //当前节点只有左子节点，或当前节点是叶子节点
-            }else {
-                flag =true;
-            }
-        }
-        return true;
-    }
 
     //打印当前二叉树
     @Override
@@ -422,6 +245,38 @@ public class MyBinarySearchTree<E> implements MyTree<E>, BinaryTreeInfo {
         stringBuilder.append(prefix ).append(node.element).append("\n");
         toString(node.leftNode,stringBuilder,prefix + "【L】");
         toString(node.rightNode,stringBuilder,prefix + "【R】");
+    }
+
+    //完全二叉树的判断方式，简洁写法：
+    protected boolean isCompleteBinaryTree(){
+        Queue<Node<E>> queue = new LinkedList<>();
+        if(rootNode == null) return false;
+        queue.add(rootNode);
+        boolean flag = false;
+        while (!queue.isEmpty()) {
+            Node<E> pollNode = queue.poll();
+
+            if(flag && !pollNode.isLeaf()){
+                return false;
+            }
+
+            if(pollNode.leftNode != null){
+                queue.add(pollNode.leftNode);
+
+                //当前节点只有右子节点，不是完全二叉树
+            }else if(pollNode.rightNode != null){
+                return false;
+            }
+
+            if(pollNode.rightNode != null){
+                queue.add(pollNode.rightNode);
+
+                //当前节点只有左子节点，或当前节点是叶子节点
+            }else {
+                flag =true;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -444,15 +299,16 @@ public class MyBinarySearchTree<E> implements MyTree<E>, BinaryTreeInfo {
         return ((Node) node).element.toString();
     }
 
+
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
     @ToString
-    private static class Node<E>{
-        E element;
-        Node<E> parentNode;
-        Node<E> leftNode;
-        Node<E> rightNode;
+    protected static class Node<E>{
+        public E element;
+        public Node<E> parentNode;
+        public Node<E> leftNode;
+        public Node<E> rightNode;
         public Node(E element, Node<E> parentNode) {
             this.element = element;
             this.parentNode = parentNode;
@@ -477,5 +333,4 @@ public class MyBinarySearchTree<E> implements MyTree<E>, BinaryTreeInfo {
         public boolean hasParent(){return parentNode != null;}
 
     }
-
 }

@@ -14,9 +14,9 @@ public class MyBinaryTreeMain {
 
     private static void doTest01(){
         //默认比较器的 二叉搜索树
-        MyBinarySearchTree<Person> myBinarySearchTree = new MyBinarySearchTree<>();
+        MyBinarySearchTree2<Person> myBinarySearchTree = new MyBinarySearchTree2<>();
         //自定义比较器的 二叉搜索树(年龄越小的，比较时按越大处理。)
-        MyBinarySearchTree<Person> myComparatorBinarySearchTree = new MyBinarySearchTree<>((e1,e2)-> e2.getAge() - e1.getAge());
+        MyBinarySearchTree2<Person> myComparatorBinarySearchTree = new MyBinarySearchTree2<>((e1,e2)-> e2.getAge() - e1.getAge());
         Person[] persons = new Person[11];
         persons[0] = new Person(7);
         persons[1] = new Person(4);
@@ -54,12 +54,13 @@ public class MyBinaryTreeMain {
         //myBinarySearchTree.levelOrderTraversal(myBinarySearchTree.getRootNode(), System.out::println);
 
         //测试打印字符串功能是否成功
-        //System.out.println(myBinarySearchTree);
+        System.out.println(myBinarySearchTree);
 
         //测试层序遍历方式获取树的高度。
         System.out.println(myBinarySearchTree.height(myBinarySearchTree.getRootNode()));
+//
+//        System.out.println(myBinarySearchTree.levelOrderTraversalHeight());
 
-        System.out.println(myBinarySearchTree.levelOrderTraversalHeight());
     }
 
 
