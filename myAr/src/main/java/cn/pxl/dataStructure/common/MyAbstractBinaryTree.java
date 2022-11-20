@@ -178,7 +178,7 @@ public abstract class MyAbstractBinaryTree<E> implements MyTree<E> , BinaryTreeI
         //3.左子树不存在，并且父结点也不存在，那么没有前驱节点。
 
         Node<E> previousNode = node;
-        if (node.hasLeftChild()) {
+        if (node.hasLeftChildOnly()) {
             //找到左子树最右边的结果，作为当前节点的前驱节点
             while (node != null){
                 previousNode = node;
@@ -205,9 +205,9 @@ public abstract class MyAbstractBinaryTree<E> implements MyTree<E> , BinaryTreeI
         //1.右子树存在时：后继，右子树最左边的节点。
         //2.右子树不存在，则没有后继节点。
 
-        if(node.hasRightChild()){
+        if(node.hasRightChildOnly()){
             Node<E> beginNode = node.rightNode;
-            while (beginNode != null && beginNode.hasLeftChild()){
+            while (beginNode != null && beginNode.hasLeftChildOnly()){
                 beginNode = beginNode.leftNode;
             }
             return beginNode;
@@ -234,13 +234,13 @@ public abstract class MyAbstractBinaryTree<E> implements MyTree<E> , BinaryTreeI
 //                queue.add(pollNode.rightNode);
 //
 //            //度为1的一种情况：当前节点只存在右节点，明显不是完全二叉树。
-//            }else if(pollNode.hasRightChild()){
+//            }else if(pollNode.hasRightChildOnly()){
 //                return false;
 //
 //            //当前节点只存在左节点，或者当前节点为叶子节点：这时，这个节点的接下来所有的节点的度都必须为0，否则就不是完全二叉树。
 //            }else {
 //                //只存在左子节点，左子节点入队。
-//                if(pollNode.hasLeftChild()){
+//                if(pollNode.hasLeftChildOnly()){
 //                    queue.add(pollNode.leftNode);
 //                }
 //                flag = true;
@@ -326,15 +326,23 @@ public abstract class MyAbstractBinaryTree<E> implements MyTree<E> , BinaryTreeI
             return leftNode != null && rightNode != null;
         }
 
-        public boolean hasLeftChild(){
+        public boolean hasLeftChildOnly(){
             return leftNode != null && rightNode == null;
         }
 
-        public boolean hasRightChild(){
+        public boolean hasRightChildOnly(){
             return leftNode == null && rightNode != null;
         }
 
         public boolean hasParent(){return parentNode != null;}
+
+        public boolean isLeftChild(){
+            return parentNode != null && this == parentNode.leftNode;
+        }
+
+        public boolean isRightChild(){
+            return parentNode != null && this == parentNode.rightNode;
+        }
 
     }
 }

@@ -21,19 +21,38 @@ public class MyAvlTree<E> extends MyBinarySearchTree2<E> {
     //通过新添加的节点，找到祖宗节点中失衡的节点，并进行调整。
     @Override
     protected void convertToBalanceTree(Node<E> node) {
-        //更新整个树的高度
-        updateHeight((AvlTreeNode<E>) rootNode);
-        AvlTreeNode<E> avlTreeNode = (AvlTreeNode<E>) node;
-        while ((avlTreeNode = (AvlTreeNode<E>)avlTreeNode.parentNode) != null){
-            if(!isBalance(avlTreeNode)){
-                //恢复平衡信息。
-                reBalance(avlTreeNode);
-                break;
+        int random = (int) (Math.random() * 100) % 2;
+        random = 1;
+        if(random == 0){
+            //重构平衡方式一：递归更新高度，效率比较低。
+            updateHeight((AvlTreeNode<E>) rootNode);
+            AvlTreeNode<E> avlTreeNode = (AvlTreeNode<E>) node;
+            while ((avlTreeNode = (AvlTreeNode<E>)avlTreeNode.parentNode) != null){
+                if(!isBalance(avlTreeNode)){
+                    //这里的avlTreeNode，是左右节点高度大于1的非平衡节点，需要恢复平衡信息。
+                    reBalanceOne(avlTreeNode);
+                    break;
+                }
+            }
+        }else {
+            //重构平衡方式二：非递归更新高度，效率比较高。
+            AvlTreeNode<E> avlTreeNode = (AvlTreeNode<E>) node;
+            while ((avlTreeNode = (AvlTreeNode<E>)avlTreeNode.parentNode) != null){
+                if(isBalance(avlTreeNode)){
+                    //平衡节点，直接更新当前节点的高度信息。(当前节点的父节点，及所有平衡的祖宗节点的高度都会被更新)
+                    avlTreeNode.updateHeight();
+                }else {
+                    //这里的avlTreeNode，是左右节点高度大于1的非平衡节点，需要恢复平衡信息，并且保证每个节点高度的正确性。
+                    reBalanceTwo(avlTreeNode);
+                    break;
+                }
             }
         }
+
     }
 
-    private void reBalance(AvlTreeNode<E> grandParent) {
+    //平衡特性实现方式一：采用递归方式计算高度，这种方式，效率比较低，每调用一次 convertToBalanceTree 方法，内部就会先初始化所有节点的高度信息，而且是递归初始化。
+    private void reBalanceOne(AvlTreeNode<E> grandParent) {
         AvlTreeNode<E> parentNode = grandParent.getParent();
         //判断 grandParent 是父结点的 哪棵子树
         Boolean isParentLeft = null;
@@ -99,6 +118,139 @@ public class MyAvlTree<E> extends MyBinarySearchTree2<E> {
         }
         parent.parentNode = parentNode;
     }
+
+    //恢复当前节点的平衡性，高度维护采用非递归方式。
+    private void reBalanceTwo(AvlTreeNode<E> grandParent){
+        //判断 grandParent 是父结点的 哪棵子树
+        Boolean isParentLeft = null;
+        if(grandParent.hasParent()){
+            isParentLeft = grandParent.isLeftChild();
+        }
+        //获取当前 grandParent 节点的最高子树。这棵子树上，存放着新添加的子节点
+        AvlTreeNode<E> parent = getHigherChildTree(grandParent);
+        //获取 parent 节点的最高子树。这颗子树上，存放着新添加的子节点
+        AvlTreeNode<E> childTree = getHigherChildTree(parent);
+
+        //判断是LL,LR,Rl,RR这几种情况
+        if(parent.isLeftChild()){
+            if(childTree.isLeftChild()){
+                //LL
+                rightConvert(grandParent);
+            }else {
+                //LR
+                leftConvert(parent);
+                rightConvert(grandParent);
+            }
+        } else {
+            if(childTree.isLeftChild())  {
+                //RL
+                rightConvert(parent);
+                leftConvert(grandParent);
+            }else {
+                //RR
+                leftConvert(grandParent);
+            }
+        }
+    }
+
+    private void leftConvert(Node<E> grand) {
+        Node<E> parent = grand.rightNode;
+        Node<E> child = parent.leftNode;
+        grand.rightNode = child;
+        parent.leftNode = grand;
+        afterRotate(grand, parent, child);
+    }
+
+    private void rightConvert(Node<E> grand) {
+        Node<E> parent = grand.leftNode;
+        Node<E> child = parent.rightNode;
+        grand.leftNode = child;
+        parent.rightNode = grand;
+        afterRotate(grand, parent, child);
+    }
+
+    private void afterRotate(Node<E> grand, Node<E> parent, Node<E> child) {
+        // 让parent称为子树的根节点
+        parent.parentNode = grand.parentNode;
+        if (grand.isLeftChild()) {
+            grand.parentNode.leftNode = parent;
+        } else if (grand.isRightChild()) {
+            grand.parentNode.rightNode = parent;
+        } else { // grand是root节点
+            rootNode = parent;
+        }
+
+        // 更新child的parent
+        if (child != null) {
+            child.parentNode = grand;
+        }
+
+        // 更新grand的parent
+        grand.parentNode = parent;
+
+        // 更新高度
+        updateHeight((AvlTreeNode<E>) grand);
+        updateHeight((AvlTreeNode<E>) parent);
+    }
+
+//    //左旋转
+//    private void leftConvert(AvlTreeNode<E> convertNode) {
+//        AvlTreeNode<E> convertNodeParent = convertNode.getParent();
+//        Boolean isParentLeft = null;
+//        if(convertNodeParent != null){
+//            isParentLeft = convertNode.isLeftChild();
+//        }
+//        AvlTreeNode<E> parentNode = convertNode.getRightNode();
+//        //统一处理RR。
+//        convertNode.rightNode = parentNode.leftNode;
+//        if(parentNode.leftNode != null){
+//            parentNode.leftNode.parentNode = convertNode;
+//        }
+//        parentNode.leftNode = convertNode;
+//        convertNode.parentNode = parentNode;
+//        //左旋后，parentNode 会成为新树的根节点，所以要将 parentNode 挂载到 convertNodeParent 的父结点下。
+//        relateToParent(parentNode,convertNodeParent,isParentLeft);
+//        //旋转之后，更新树的高度。
+//        updateHeight(convertNode);
+//        updateHeight(parentNode);
+//    }
+//
+//    //右旋转
+//    private void rightConvert(AvlTreeNode<E> convertNode) {
+//        AvlTreeNode<E> convertNodeParent = convertNode.getParent();
+//        Boolean isParentLeft = null;
+//        if(convertNodeParent != null){
+//            isParentLeft = convertNode.isLeftChild();
+//        }
+//        AvlTreeNode<E> parentNode = convertNode.getLeftNode();
+//        //统一处理LL。
+//        convertNode.leftNode = parentNode.rightNode;
+//        if(parentNode.rightNode != null){
+//            parentNode.rightNode.parentNode = convertNode;
+//        }
+//        parentNode.rightNode = convertNode;
+//        convertNode.parentNode = parentNode;
+//        //右旋后，parentNode 会成为新树的根节点，所以要将 parentNode 挂载到 convertNodeParent 的父结点下。
+//        relateToParent(parentNode,convertNodeParent,isParentLeft);
+//        //旋转之后，更新树的高度。
+//        updateHeight(convertNode);
+//        updateHeight(parentNode);
+//    }
+//
+//    //将旋转后的树挂载到父结点下。
+//    private void relateToParent(AvlTreeNode<E> relateNode,AvlTreeNode<E> parent,Boolean isParentLeft){
+//        //已完成子树的旋转，这时，需要将旋转后的树挂载到 parentNode 节点下。
+//        if(isParentLeft == null){
+//            rootNode = relateNode;
+//        }
+//        else if(isParentLeft){
+//            parent.leftNode = parent;
+//            parent.parentNode = parent;
+//        } else {
+//            parent.rightNode = parent;
+//            parent.parentNode = parent;
+//        }
+//    }
 
     //返回更新后的节点高度。
     private int updateHeight(AvlTreeNode<E> rootNode){
@@ -194,7 +346,6 @@ public class MyAvlTree<E> extends MyBinarySearchTree2<E> {
             return (AvlTreeNode<E>) rightNode;
 
         }
-
 
     }
 }
