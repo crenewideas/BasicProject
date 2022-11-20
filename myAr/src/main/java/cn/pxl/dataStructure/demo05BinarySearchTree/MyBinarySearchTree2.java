@@ -113,7 +113,8 @@ public class MyBinarySearchTree2<E> extends MyAbstractBinaryTree<E> {
             }else {
                 node.parentNode.rightNode = replacementNode;
             }
-
+            //删除之后，留给子类实现自平衡操作。如果子类不实现，那么无法保证删除之后的树的平衡。
+            afterRemove(node);
         //叶子节点
         }else {
             //叶子节点没有根节点
@@ -127,7 +128,12 @@ public class MyBinarySearchTree2<E> extends MyAbstractBinaryTree<E> {
             }else {
                 node.parentNode.leftNode = null;
             }
+            afterRemove(node);
         }
+    }
+
+    //留给子类实现的方法
+    protected void afterRemove(Node<E> node) {
 
     }
 

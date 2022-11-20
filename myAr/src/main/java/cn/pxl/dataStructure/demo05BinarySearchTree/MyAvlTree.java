@@ -17,6 +17,22 @@ public class MyAvlTree<E> extends MyBinarySearchTree2<E> {
         super.comparator = comparator;
     }
 
+    //父类留给子类扩展的方法，会在调用父类删除逻辑之后执行这段代码。
+    //对删除后的树实现自平衡操作。
+    @Override
+    protected void afterRemove(Node<E> node) {
+        AvlTreeNode<E> avlTreeNode = (AvlTreeNode<E>) node;
+        while ((avlTreeNode = (AvlTreeNode<E>)avlTreeNode.parentNode) != null){
+            if(isBalance(avlTreeNode)){
+                //平衡节点，直接更新当前节点的高度信息。(当前节点的父节点，及所有平衡的祖宗节点的高度都会被更新)
+                avlTreeNode.updateHeight();
+            }else {
+                //这里的avlTreeNode，是左右节点高度大于1的非平衡节点，需要恢复平衡信息，并且保证每个节点高度的正确性。
+                reBalanceTwo(avlTreeNode);
+            }
+        }
+    }
+
     //这个方法用于添加节点后，调整树到平衡状态。
     //通过新添加的节点，找到祖宗节点中失衡的节点，并进行调整。
     @Override
@@ -121,11 +137,6 @@ public class MyAvlTree<E> extends MyBinarySearchTree2<E> {
 
     //恢复当前节点的平衡性，高度维护采用非递归方式。
     private void reBalanceTwo(AvlTreeNode<E> grandParent){
-        //判断 grandParent 是父结点的 哪棵子树
-        Boolean isParentLeft = null;
-        if(grandParent.hasParent()){
-            isParentLeft = grandParent.isLeftChild();
-        }
         //获取当前 grandParent 节点的最高子树。这棵子树上，存放着新添加的子节点
         AvlTreeNode<E> parent = getHigherChildTree(grandParent);
         //获取 parent 节点的最高子树。这颗子树上，存放着新添加的子节点
