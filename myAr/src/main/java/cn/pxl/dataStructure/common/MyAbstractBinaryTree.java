@@ -6,19 +6,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+//抽象二叉树类，公共逻辑有：前序遍历方式，中序遍历方式，后续遍历方式，获取元素个数，是否是完全二叉树，树的高度算法等
 @Data
-@ToString
-public abstract class MyBinaryTree<E> implements MyTree<E> , BinaryTreeInfo {
+public abstract class MyAbstractBinaryTree<E> implements MyTree<E> , BinaryTreeInfo {
 
     protected int size;
 
     protected Node<E> rootNode;
+
+    protected Comparator<E> comparator;
 
     @Override
     public boolean isEmpty() {
@@ -34,6 +37,21 @@ public abstract class MyBinaryTree<E> implements MyTree<E> , BinaryTreeInfo {
     public int size() {
         return size;
     }
+
+    //比较节点中值和传入的值的大小
+    // < 0  : element1 < element2
+    // = 0  : element1 = element2
+    // > 0  : element1 > element2
+    protected int compareNodeElement(E element1, E element2){
+        if(comparator != null){
+            return comparator.compare(element1,element2);
+        }
+        if(element1 instanceof Comparable){
+            Comparable<E> comparableElement1 = (Comparable<E>)element1;
+            return comparableElement1.compareTo(element2);
+        }
+        throw new RuntimeException("添加类型必须实现Comparable接口，或定义Comparator比较器");
+    };
 
     //判断是否是叶子节点：
     protected boolean isLeafNode(Node<E> node){
@@ -138,7 +156,7 @@ public abstract class MyBinaryTree<E> implements MyTree<E> , BinaryTreeInfo {
     }
 
     //计算二叉树高度方式二：利用递归方式计算二叉树的高度
-    public int height(Node<E> node){
+    public static int height(Node node){
         //如果是叶子结点 的左右子节点，则返回0。
         if(node == null) return 0;
         //计算当前节点的左子树高度
@@ -232,20 +250,7 @@ public abstract class MyBinaryTree<E> implements MyTree<E> , BinaryTreeInfo {
 //    }
 
 
-    //打印当前二叉树
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        toString(rootNode,stringBuilder,"");
-        return stringBuilder.toString();
-    }
 
-    private void toString(Node<E> node,StringBuilder stringBuilder,String prefix){
-        if(node == null) return ;
-        stringBuilder.append(prefix ).append(node.element).append("\n");
-        toString(node.leftNode,stringBuilder,prefix + "【L】");
-        toString(node.rightNode,stringBuilder,prefix + "【R】");
-    }
 
     //完全二叉树的判断方式，简洁写法：
     protected boolean isCompleteBinaryTree(){
@@ -301,14 +306,13 @@ public abstract class MyBinaryTree<E> implements MyTree<E> , BinaryTreeInfo {
 
 
     @Data
-    @NoArgsConstructor
     @AllArgsConstructor
     @ToString
     protected static class Node<E>{
-        public E element;
-        public Node<E> parentNode;
-        public Node<E> leftNode;
-        public Node<E> rightNode;
+        public E element = null;
+        public Node<E> parentNode = null;
+        public Node<E> leftNode = null;
+        public Node<E> rightNode = null;
         public Node(E element, Node<E> parentNode) {
             this.element = element;
             this.parentNode = parentNode;

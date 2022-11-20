@@ -1,10 +1,13 @@
 package cn.pxl.leetCode.demo05Tree;
+
+import cn.pxl.leetCode.common.TreeNode;
+import lombok.NoArgsConstructor;
+
 //给你一棵二叉树的根节点 root ，翻转这棵二叉树，并返回其根节点。
 //输入：root = [4,2,7,1,3,6,9]
 //输出：[4,7,2,9,6,3,1]
-public class Xlp226 {
-
-
+@NoArgsConstructor
+public class Xlp226 extends TreeNode {
 
     //思路一：
     public TreeNode invertTree(TreeNode root) {
@@ -47,17 +50,6 @@ public class Xlp226 {
         return root;
     }
 
-    private class TreeNode {
-      int val;
-      TreeNode left;
-      TreeNode right;
-      TreeNode() {}
-      TreeNode(int val) { this.val = val; }
-      TreeNode(int val, TreeNode left, TreeNode right) {
-          this.val = val;
-          this.left = left;
-          this.right = right;
-      }
-  }
+
 
 }

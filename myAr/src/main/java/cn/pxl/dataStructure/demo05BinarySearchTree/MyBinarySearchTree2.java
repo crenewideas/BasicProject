@@ -1,34 +1,27 @@
 package cn.pxl.dataStructure.demo05BinarySearchTree;
 
-import cn.pxl.dataStructure.common.MyBinaryTree;
-import cn.pxl.dataStructure.common.MyTree;
-import cn.pxl.dataStructure.common.printer.BinaryTreeInfo;
+import cn.pxl.dataStructure.common.MyAbstractBinaryTree;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 //二叉搜索树
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-public class MyBinarySearchTree2<E> extends MyBinaryTree<E> {
+public class MyBinarySearchTree2<E> extends MyAbstractBinaryTree<E> {
 
-    private Comparator<E> comparator;
+    public MyBinarySearchTree2(Comparator<E> comparator) {
+        super.comparator = comparator;
+    }
 
     @Override
     public void add(E element) {
         elementNotNullCheck(element);
         //根节点：
         if(rootNode == null){
-            rootNode = new Node<>(element,null);
+            rootNode = createNode(element,null);
             size ++;
             return;
         }
@@ -47,7 +40,7 @@ public class MyBinarySearchTree2<E> extends MyBinaryTree<E> {
                 oneNode = null;
             }
         }
-        Node<E> newNode = new Node<>(element, parentNode);
+        Node<E> newNode = createNode(element,parentNode);
         if(comp > 0){
             parentNode.rightNode = newNode;
         } else if(comp < 0 ){
@@ -57,6 +50,19 @@ public class MyBinarySearchTree2<E> extends MyBinaryTree<E> {
             parentNode.element = element;
         }
         size ++;
+        //子类实现这个方法，调整树到平衡的状态。
+        convertToBalanceTree(newNode);
+    }
+
+    // 留给子类实现调整树平衡的逻辑。二叉搜索树没有自平衡的功能，因此给空实现。
+    // 入参：node 是新添加的元素。
+    protected void convertToBalanceTree(Node<E> node){
+
+    }
+
+    //这个方法，子类可以重写，返回的就是子类的节点类型。
+    protected Node<E> createNode(E element,Node<E> parentNode){
+        return new Node<>(element, parentNode);
     }
 
     @Override
@@ -140,19 +146,18 @@ public class MyBinarySearchTree2<E> extends MyBinaryTree<E> {
         return false;
     }
 
-    //比较节点中值和传入的值的大小
-    // < 0  : element1 < element2
-    // = 0  : element1 = element2
-    // > 0  : element1 > element2
-    private int compareNodeElement(E element1,E element2){
-        if(comparator != null){
-            return comparator.compare(element1,element2);
-        }
-        if(element1 instanceof Comparable){
-            Comparable<E> comparableElement1 = (Comparable<E>)element1;
-            return comparableElement1.compareTo(element2);
-        }
-        throw new RuntimeException("添加类型必须实现Comparable接口，或定义Comparator比较器");
-    };
+    //打印当前二叉树
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        toString(rootNode,stringBuilder,"");
+        return stringBuilder.toString();
+    }
 
+    private void toString(Node<E> node,StringBuilder stringBuilder,String prefix){
+        if(node == null) return ;
+        stringBuilder.append(prefix ).append(node.element).append("\n");
+        toString(node.leftNode,stringBuilder,prefix + "【L】");
+        toString(node.rightNode,stringBuilder,prefix + "【R】");
+    }
 }

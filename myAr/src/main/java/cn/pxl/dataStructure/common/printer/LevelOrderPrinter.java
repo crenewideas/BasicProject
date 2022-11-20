@@ -33,13 +33,16 @@ public class LevelOrderPrinter extends Printer {
 
 	public LevelOrderPrinter(BinaryTreeInfo tree) {
 		super(tree);
-
 		root = new Node(tree.root(), tree);
 		maxWidth = root.width;
 	}
 
 	@Override
 	public String printString() {
+		if(root == null){
+			return "";
+		}
+
 		// nodes用来存放所有的节点
 		List<List<Node>> nodes = new ArrayList<>();
 		fillNodes(nodes);
@@ -345,6 +348,9 @@ public class LevelOrderPrinter extends Printer {
 		}
 
 		public Node(Object btNode, BinaryTreeInfo opetaion) {
+			if(btNode == null){
+				throw new RuntimeException("节点不能为空！");
+			}
 			init(opetaion.string(btNode).toString());
 
 			this.btNode = btNode;
