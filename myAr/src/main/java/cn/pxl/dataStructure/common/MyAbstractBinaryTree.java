@@ -336,6 +336,22 @@ public abstract class MyAbstractBinaryTree<E> implements MyTree<E> , BinaryTreeI
 
         public boolean hasParent(){return parentNode != null;}
 
+        //返回兄弟节点
+        public Node<E> sibling(){
+            if(isLeftChild()){
+                return parentNode.rightNode;
+            }
+            if(isRightChild()){
+                return  parentNode.leftNode;
+            }
+            return null;
+        }
+
+        //返回叔父节点
+        public Node<E> uncle(){
+            return parentNode == null ? null : parentNode.sibling();
+        }
+
         public boolean isLeftChild(){
             return parentNode != null && this == parentNode.leftNode;
         }
