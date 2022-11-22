@@ -30,6 +30,8 @@ public class MyRBTree<E> extends MyBinarySearchTree2<E>{
     //3.对于B这种情况，直接添加，并且将节点染色为R即可（节点没有上溢，添加后也才2个节点）
     //4.对于RB、BR来说，可以进行旋转，并将中间节点染色为B，左右节点染色为R。（节点没有上溢，添加后也才3个节点）
     //5.对于RBR来说，B节点上溢，左右分为两棵子树，B节点上溢后，按新添加的节点处理。
+
+    //TODO 生成了树，但是有问题，需要后续排查。
     @Override
     protected void convertToBalanceTree(Node<E> node) {
         if(node == null) return;
@@ -59,18 +61,31 @@ public class MyRBTree<E> extends MyBinarySearchTree2<E>{
 
             //afterRotateNode 也就是旋转后的树的根节点（或者说是B树节点的BLACK节点）
             RBNode<E> afterRotateNode;
-            //当前B树的root节点（或Black节点）。
-            Node<E> grandNode ;
             //当前B树节点的父节点是不是左子节点。为空表示当前B树节点没有父节点。
             Boolean currentSubTreeIsLeft = currentNode.parentNode.parentNode.parentNode== null ? null : currentNode.parentNode.parentNode.isLeftChild();
+            //当前B树的root节点（或Black节点）。
+            Node<E> grandNode =  currentNode.parentNode.parentNode;
+            //需要左旋 ，对应情况 3 和 4。
             if (currentNode.parentNode.isRightChild()) {
-                //需要左旋 ，对应情况 3 和 4。
-                afterRotateNode = rotateLeft(currentNode);
-                grandNode = afterRotateNode.parentNode;
+                if(currentNode.isLeftChild()){
+                    //需要右旋转
+                    afterRotateNode = rotateRight(currentNode.parentNode,currentNode);
+                    afterRotateNode.parentNode = grandNode;
+                    grandNode.rightNode = afterRotateNode;
+                    afterRotateNode.rightNode.parentNode = currentNode;
+                }
+                afterRotateNode = rotateLeft(grandNode,currentNode);
+
+            //需要右旋，对应情况 1 和 2。
             } else {
-                //需要右旋，对应情况 1 和 2。
-                afterRotateNode = rotateRight(currentNode);
-                grandNode = afterRotateNode.parentNode;
+                if(currentNode.isRightChild()){
+                    //需要左旋转
+                    afterRotateNode = rotateLeft(currentNode.parentNode,currentNode);
+                    afterRotateNode.parentNode = grandNode;
+                    grandNode.leftNode = afterRotateNode;
+                    afterRotateNode.leftNode.parentNode = currentNode;
+                }
+                afterRotateNode = rotateRight(grandNode,currentNode);
             }
 
             if (currentSubTreeIsLeft == null) {
@@ -96,9 +111,8 @@ public class MyRBTree<E> extends MyBinarySearchTree2<E>{
         }
     }
 
-    private RBNode<E> rotateLeft(Node<E> currentNode){
-        Node<E> parentNode = currentNode.parentNode;
-        Node<E> grandParentNode = parentNode.parentNode;
+    private RBNode<E> rotateLeft(Node<E> grandParentNode,Node<E> currentNode){
+        Node<E> parentNode = grandParentNode.rightNode;
         grandParentNode.rightNode = parentNode.leftNode;
         if(parentNode.leftNode != null) parentNode.leftNode.parentNode = grandParentNode;
         parentNode.leftNode = grandParentNode;
@@ -112,9 +126,8 @@ public class MyRBTree<E> extends MyBinarySearchTree2<E>{
         return (RBNode<E>) parentNode;
     }
 
-    private RBNode<E> rotateRight(Node<E> currentNode){
-        Node<E> parentNode = currentNode.parentNode;
-        Node<E> grandParentNode = parentNode.parentNode;
+    private RBNode<E> rotateRight(Node<E> grandParentNode,Node<E> currentNode){
+        Node<E> parentNode = grandParentNode.leftNode;
         grandParentNode.leftNode = parentNode.rightNode;
         if(parentNode.rightNode != null) parentNode.rightNode.parentNode = grandParentNode;
         parentNode.rightNode = grandParentNode;
