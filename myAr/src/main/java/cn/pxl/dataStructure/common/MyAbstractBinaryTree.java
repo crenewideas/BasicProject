@@ -92,6 +92,51 @@ public abstract class MyAbstractBinaryTree<E> implements MyTree<E> , BinaryTreeI
         interTraversal(rootNode.rightNode,consumer);
     }
 
+    //中序遍历树
+    public void interTraversal(Consumer<E> consumer){
+        interTraversal(rootNode,consumer);
+    }
+
+    //中序遍历树
+    public Boolean interTraversalBoolean(Node<E> rootNode,Function<E,Boolean> function){
+        //当叶子节点遍历完成，要遍历其子节点，这时，子节点 == null ,返回 false ，表示继续遍历其他节点。
+        if(rootNode == null) return false;
+        boolean stopIfNecessary;
+        //1.遍历左子树。
+        stopIfNecessary = interTraversalBoolean(rootNode.leftNode, function);
+        if(stopIfNecessary) return true;
+        //2.回调函数执行。
+        stopIfNecessary = function.apply(rootNode.element);
+        if(stopIfNecessary) return true;
+        //3.遍历右子树。
+        return interTraversalBoolean(rootNode.rightNode, function);
+    }
+
+    //中序遍历树
+    public void interTraversalBoolean(Function<E,Boolean> function){
+        interTraversalBoolean(rootNode,function);
+    }
+
+    //中序遍历树,返回对应的结果
+    public E interTraversal(Function<E,E> function){
+        return interTraversal(rootNode,function);
+    }
+
+    //中序遍历树，获取元素值后返回。
+    public E interTraversal(Node<E> rootNode,Function<E,E> function){
+        //当叶子节点遍历完成，要遍历其子节点，这时，子节点 == null ,返回 false ，表示继续遍历其他节点。
+        if(rootNode == null) return null;
+        E returnElement;
+        //1.遍历左子树。
+        returnElement = interTraversal(rootNode.leftNode, function);
+        if(returnElement != null) return returnElement;
+        //2.回调函数执行。
+        returnElement = function.apply(rootNode.element);
+        if(returnElement != null) return returnElement;
+        //3.遍历右子树。
+        return interTraversal(rootNode.rightNode, function);
+    }
+
     //后序遍历树，用 Function 函数接口，返回值代表是否需要继续遍历，来实现特定条件下停止继续遍历的功能。
     //这种方式，可以实现要停止之后的递归调用都不会执行，效率比较高。
     public boolean postTraversal(Node<E> rootNode, Function<E,Boolean> function){
