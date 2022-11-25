@@ -6,7 +6,7 @@ import cn.pxl.dataStructure.common.Asserts;
 
 import java.util.Comparator;
 
-//归并
+//快速排序
 public class MyQuickSort<E> extends AbstractSort<E> {
 
     public static void main(String[] args) {
@@ -14,7 +14,7 @@ public class MyQuickSort<E> extends AbstractSort<E> {
         Integer[] integers = Integers.random(10, 10, 100);
         MyQuickSort<Integer> myQuickSort = new MyQuickSort<>(integers);
         Integers.println(integers);
-        //第一种插入排序
+
         myQuickSort.sort();
 
         Integers.println(integers);
