@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
+   <!--静态方法创建-->
+   <bean id="beanByStaticMethod" class="cn.pxl.entity.User" factory-method="createUser"/>
+   <!--实例方法创建-->
+   <bean id="beanByUserFactory" class="cn.pxl.entity.User" factory-bean="userFactory" factory-method="createUser"/>
+
+   <bean id="userFactory" class="cn.pxl.factory.UserFactory"/>
+
+   <bean id="userByFactoryBean" class="cn.pxl.factory.UserFactoryBean"/>
+
+</beans>

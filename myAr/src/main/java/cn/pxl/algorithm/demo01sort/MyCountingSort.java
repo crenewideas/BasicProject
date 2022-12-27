@@ -65,4 +65,7 @@ public class MyCountingSort<E> extends AbstractSort<E> {
         }
     }
 
+    private void countingSort2() {
+
+    }
 }

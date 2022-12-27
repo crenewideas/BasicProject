@@ -1,4 +1,4 @@
-package cn.pxl.bean;
+package cn.pxl.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

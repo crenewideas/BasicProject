@@ -1,4 +1,4 @@
-package cn.pxl.bean;
+package cn.pxl.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class User {
-    private String userName;
-    private String passWord;
+    private String name;
     private Integer age;
+
+    public static User createUser(){
+        User user = new User();
+        user.setName("staticMethod");
+        user.setAge(0);
+        return user;
+    }
 }

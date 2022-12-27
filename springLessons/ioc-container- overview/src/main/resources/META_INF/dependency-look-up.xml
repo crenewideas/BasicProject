@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="cn.pxl.entity.User">
+        <property name="userName" value="pxl"/>
+        <property name="passWord" value="psw"/>
+        <property name="age" value="25"/>
+    </bean>
+
+    <bean id="subUser" class="cn.pxl.entity.SubUser" parent="user" primary="true">
+        <property name="address" value="河南"/>
+    </bean>
+
+    <!--延时查找bean的示例-->
+    <bean id="objectFactoryCreatingFactoryBean" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+        <property name="targetBeanName" value="user"/>
+    </bean>
+
+</beans>

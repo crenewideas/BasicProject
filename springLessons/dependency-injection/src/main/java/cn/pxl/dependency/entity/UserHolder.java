@@ -1,5 +1,6 @@
-package cn.pxl.bean;
+package cn.pxl.dependency.entity;
 
+import cn.pxl.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,8 +10,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class User {
-    private String userName;
-    private String passWord;
-    private Integer age;
+public class UserHolder {
+    private User user;
 }
