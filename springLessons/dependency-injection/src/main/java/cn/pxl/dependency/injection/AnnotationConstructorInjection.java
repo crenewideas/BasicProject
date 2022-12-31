@@ -1,5 +1,6 @@
 package cn.pxl.dependency.injection;
 
+import cn.pxl.dependency.entity.City;
 import cn.pxl.dependency.entity.UserHolder;
 import cn.pxl.entity.User;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
@@ -17,8 +18,8 @@ public class AnnotationConstructorInjection {
     }
 
     @Bean
-    public UserHolder userHolder(User user1){
-        return new UserHolder(user1);
+    public UserHolder userHolder(User user1,City city){
+        return new UserHolder(user1,city);
     }
 
     @Bean
@@ -26,6 +27,11 @@ public class AnnotationConstructorInjection {
         User user = new User();
         user.setUserName("annotationConstructor");
         return user;
+    }
+
+    @Bean
+    public City bj(){
+        return City.BJ;
     }
 
 }
