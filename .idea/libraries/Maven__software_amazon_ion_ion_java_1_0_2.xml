@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: software.amazon.ion:ion-java:1.0.2">
+    <CLASSES>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/software/amazon/ion/ion-java/1.0.2/ion-java-1.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/software/amazon/ion/ion-java/1.0.2/ion-java-1.0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/software/amazon/ion/ion-java/1.0.2/ion-java-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

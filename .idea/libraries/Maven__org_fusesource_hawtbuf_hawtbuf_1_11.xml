@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.fusesource.hawtbuf:hawtbuf:1.11">
+    <CLASSES>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/fusesource/hawtbuf/hawtbuf/1.11/hawtbuf-1.11.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/fusesource/hawtbuf/hawtbuf/1.11/hawtbuf-1.11-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/fusesource/hawtbuf/hawtbuf/1.11/hawtbuf-1.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
