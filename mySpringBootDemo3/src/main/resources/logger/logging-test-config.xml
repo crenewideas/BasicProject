@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration  scan="true" scanPeriod="60 seconds" debug="false">
+    <!--contextName标签可以用来设置logger文件名称，默认名称为“default”,可以通过%contextName来打印名称-->
+    <contextName>pxl-test</contextName>
+    <!--property标签的作用是用来定义变量，name是变量名，value是变量值，使用${}的格式可以在日志文件内使用变量。-->
+    <property name="log.path" value="/Users/pengxiaoliang/apphome/mySpringBootDemo3/test" />
+
+    <!--appender标签用来格式化日志输出节点，有两个属性name和class，class用来指定哪种输出策略，常用就是控制台输出策略和文件输出策略。-->
+    <!--输出到控制台-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!--ThresholdFilter是系统定义的拦截器，用来过滤掉error级别以下的日志信息，不使用请注释掉，不然控制台会少一些日志。    -->
+        <!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>-->
+        <!--encoder标签：对日志进行编码。-->
+        <encoder>
+            <!-- %d{HH:mm:ss.SSS}：当前系统时间；
+             %contextName：logger文件名称；
+            [%thread]：输出日志的进程名字，这在Web应用以及异步任务处理中很有用；
+            %-5level：日志级别；
+            %logger{36}：日志输出者的名字；
+            %msg：日志具体内容信息；
+            %n：平台换行符； -->
+            <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--输出到文件-->
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--文件路径,定义了日志的切分方式——把每一天的日志归档到一个文件中,以防止日志填满整个磁盘空间-->
+            <fileNamePattern>${log.path}/logback.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!--只保留最近90天的日志-->
+            <maxHistory>90</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <!--日志输出编码格式化-->
+            <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+<!--    <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        &lt;!&ndash;如果只是想要 Info 级别的日志，只是过滤 info 还是会输出 Error 日志，因为 Error 的级别高，-->
+<!--        所以我们使用下面的策略，可以避免输出 Error 的日志&ndash;&gt;-->
+<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+<!--            &lt;!&ndash;过滤 Error&ndash;&gt;-->
+<!--            <level>ERROR</level>-->
+<!--            &lt;!&ndash;匹配到就禁止&ndash;&gt;-->
+<!--            <onMatch>DENY</onMatch>-->
+<!--            &lt;!&ndash;没有匹配到就允许&ndash;&gt;-->
+<!--            <onMismatch>ACCEPT</onMismatch>-->
+<!--        </filter>-->
+<!--        &lt;!&ndash;日志名称，如果没有File 属性，那么只会使用FileNamePattern的文件路径规则-->
+<!--            如果同时有<File>和<FileNamePattern>，那么当天日志是<File>，明天会自动把今天-->
+<!--            的日志改名为今天的日期。即，<File> 的日志都是当天的。-->
+<!--        &ndash;&gt;-->
+<!--        <File>${logback.logdir}/info.${logback.appname}.log</File>-->
+<!--        &lt;!&ndash;滚动策略，按照时间滚动 TimeBasedRollingPolicy&ndash;&gt;-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            &lt;!&ndash;文件路径,定义了日志的切分方式——把每一天的日志归档到一个文件中,以防止日志填满整个磁盘空间&ndash;&gt;-->
+<!--            <FileNamePattern>${logback.logdir}/info.${logback.appname}.%d{yyyy-MM-dd}.log</FileNamePattern>-->
+<!--            &lt;!&ndash;只保留最近90天的日志&ndash;&gt;-->
+<!--            <maxHistory>90</maxHistory>-->
+<!--            &lt;!&ndash;用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志&ndash;&gt;-->
+<!--            &lt;!&ndash;<totalSizeCap>1GB</totalSizeCap>&ndash;&gt;-->
+<!--        </rollingPolicy>-->
+<!--        &lt;!&ndash;日志输出编码格式化&ndash;&gt;-->
+<!--        <encoder>-->
+<!--            <charset>UTF-8</charset>-->
+<!--            <pattern>%d [%thread] %-5level %logger{36} %line - %msg%n</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
+
+<!--    <appender name="fileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        &lt;!&ndash;如果只是想要 Error 级别的日志，那么需要过滤一下，默认是 info 级别的，ThresholdFilter&ndash;&gt;-->
+<!--        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+<!--            <level>Error</level>-->
+<!--        </filter>-->
+<!--        &lt;!&ndash;日志名称，如果没有File 属性，那么只会使用FileNamePattern的文件路径规则-->
+<!--            如果同时有<File>和<FileNamePattern>，那么当天日志是<File>，明天会自动把今天-->
+<!--            的日志改名为今天的日期。即，<File> 的日志都是当天的。-->
+<!--        &ndash;&gt;-->
+<!--        <File>${logback.logdir}/error.${logback.appname}.log</File>-->
+<!--        &lt;!&ndash;滚动策略，按照时间滚动 TimeBasedRollingPolicy&ndash;&gt;-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            &lt;!&ndash;文件路径,定义了日志的切分方式——把每一天的日志归档到一个文件中,以防止日志填满整个磁盘空间&ndash;&gt;-->
+<!--            <FileNamePattern>${logback.logdir}/error.${logback.appname}.%d{yyyy-MM-dd}.log</FileNamePattern>-->
+<!--            &lt;!&ndash;只保留最近90天的日志&ndash;&gt;-->
+<!--            <maxHistory>90</maxHistory>-->
+<!--            &lt;!&ndash;用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志&ndash;&gt;-->
+<!--            &lt;!&ndash;<totalSizeCap>1GB</totalSizeCap>&ndash;&gt;-->
+<!--        </rollingPolicy>-->
+<!--        &lt;!&ndash;日志输出编码格式化&ndash;&gt;-->
+<!--        <encoder>-->
+<!--            <charset>UTF-8</charset>-->
+<!--            <pattern>%d [%thread] %-5level %logger{36} %line - %msg%n</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
+
+    <!-- root节点是必选节点，用来指定最基础的日志输出级别，只有一个level属性。
+         level:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，不能设置为INHERITED或者同义词NULL。
+         默认是DEBUG。
+         可以包含零个或多个元素，标识这个appender将会添加到这个logger。 -->
+    <!-- 将level值设为debug时会打印出sql语句和很多多余信息 -->
+    <root level="info">
+        <appender-ref ref="console" />
+        <appender-ref ref="file" />
+    </root>
+
+    <!-- 下面两种logger配置根据应用场景任选其一进行应用 -->
+    <!-- 1.全局logger设置，所有的日志输出共用一个logger配置。 -->
+    <logger name="cn.pxl.myspringbootdemo3.controller" level="DEBUG"/>
+
+    <!-- 2.在有多个controller控制层需要使用不同的日志输出级别时，可以定义多个logger来控制不同的控制层输出日志。 -->
+    <!--将additivity属性值改成”true”的话，就会打印两次，因为打印信息向上级传递，logger本身打印一次，root接到后又打印一次。-->
+    <!--<logger name="com.lx.demo.controller.HelloController" level="warn" additivity="false">
+        <appender-ref ref="console"/>
+    </logger>
+    <logger name="com.lx.demo.controller.UserController" level="error" additivity="false">
+        <appender-ref ref="console"/>
+    </logger>-->
+
+    <!-- 下面的logger配置方式可以扫描mapper文件夹下的所有文件，打印出sql语句。 -->
+    <!-- 这里的level值一般设为dubug不会变化，只影响sql语句的打印输出，不影响日志文件的输出级别。 -->
+    <logger name="cn.pxl.myspringbootdemo3.service" level="debug" additivity="false">
+        <appender-ref ref="console"/>
+    </logger>
+
+</configuration>

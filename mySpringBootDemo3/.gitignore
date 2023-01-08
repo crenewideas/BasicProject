@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### other ####
+*.class
+*.lst
+*.jar
+*.dta
