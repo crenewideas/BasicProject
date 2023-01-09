@@ -1,22 +1,52 @@
 server:
   port: 8001
 spring:
+  application:
+    name: orderservice
   datasource:
     url: jdbc:mysql://192.168.0.103:3306/cloud?useSSL=false
     username: root
     password: rootroot
     driver-class-name: com.mysql.jdbc.Driver
-
+  cloud:
+    nacos:
+      server-addr: 10.211.55.5:80
+      discovery:
+        #集群名称，多个服务属于同一个集群时，优先访问集群内部服务。
+        cluster-name: HN
+        # 命名空间，填ID，该ID在Nacos服务器命名空间中有显示。
+#        namespace: 1966b244-aa55-41e7-abc3-c1a96db2fcf7
 mybatis:
   type-aliases-package: cn.pxl.user.pojo
   configuration:
     map-underscore-to-camel-case: true
 logging:
-  level:
-    root: info
+#  level:
+#    root: info
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
 #  logback:
 #    rollingpolicy:
 #      max-file-size: 10KB
 #      file-name-pattern: server.%d{yyyy-MM-dd}.%i.log
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://192.168.0.103:10086/eureka
+
+feign:
+  client:
+    config:
+      # 包含四种不同的级别：NONE、BASIC、HEADERS、FULL
+      # 针对某个微服务的配置
+      userservice:
+        # 日志级别
+        loggerLevel: HEADERS
+      # 这里用default就是全局配置，如果是写服务名称，则是针对某个微服务的配置
+      default:
+        # 日志级别尽量用basic
+        loggerLevel: BASIC
+  httpclient:
+    enabled: true # 开启feign对HttpClient的支持
+    max-connections: 200 # 最大的连接数
+    max-connections-per-route: 50 # 每个路径的最大连接数

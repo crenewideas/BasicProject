@@ -10,15 +10,14 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   cloud:
     nacos:
-      server-addr: 10.211.55.5:80
-#      server-addr: 192.168.0.103:8083
+      server-addr: 192.168.0.103:8848
       discovery:
         #集群名称，多个服务属于同一个集群
         cluster-name: HN
         # 命名空间，填ID，该ID在Nacos服务器命名空间中有显示。不同的名称空间的服务彼此不可见。
-#        namespace: 1966b244-aa55-41e7-abc3-c1a96db2fcf7
+        namespace: 1966b244-aa55-41e7-abc3-c1a96db2fcf7
         # 设置为非临时实例（永久实例）
-#        ephemeral: false
+        ephemeral: false
 
 mybatis:
   type-aliases-package: cn.pxl.user.pojo

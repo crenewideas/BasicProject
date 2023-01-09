@@ -13,12 +13,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("order")
 public class OrderController {
 
-   @Autowired
-   private OrderService orderService;
+    @Autowired
+    private OrderService orderService;
 
     @GetMapping("{orderId}")
     public ResultEntity<Order> queryOrderByUserId(@PathVariable("orderId") Long orderId) {
         // 根据id查询订单并返回
         return ResultEntity.success(orderService.queryOrderById(orderId));
+    }
+
+    @GetMapping("/feign/{orderId}")
+    public ResultEntity<Order> feignQueryOrderByUserId(@PathVariable("orderId") Long orderId) {
+        // 根据id查询订单并返回
+        return ResultEntity.success(orderService.feingQueryOrderById(orderId));
     }
 }

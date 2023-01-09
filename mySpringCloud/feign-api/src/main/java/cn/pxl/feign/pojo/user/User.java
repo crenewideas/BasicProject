@@ -1,4 +1,4 @@
-package cn.pxl.user.pojo;
+package cn.pxl.feign.pojo.user;
 
 import lombok.Data;
 

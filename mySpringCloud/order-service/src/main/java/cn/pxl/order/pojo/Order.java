@@ -1,5 +1,6 @@
 package cn.pxl.order.pojo;
 
+import cn.pxl.feign.pojo.user.User;
 import lombok.Data;
 
 @Data

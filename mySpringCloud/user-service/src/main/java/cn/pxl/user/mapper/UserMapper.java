@@ -1,6 +1,6 @@
 package cn.pxl.user.mapper;
 
-import cn.pxl.user.pojo.User;
+import cn.pxl.feign.pojo.user.User;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
