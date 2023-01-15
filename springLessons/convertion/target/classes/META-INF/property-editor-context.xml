@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- bean definitions here -->
+
+    <bean id="myPropertyEditorRegistrar" class="cn.pxl.convertion.registry.MyPropertyEditorRegistrar"/>
+
+    <bean id="propertyToStringConvertor" class="cn.pxl.convertion.convertor.PropertyToStringConvertor"/>
+
+    <!--  声明一个ConversionServiceFactoryBean  -->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters" ref="propertyToStringConvertor"/>
+    </bean>
+
+    <!--  java.util.Properties类型  -->
+    <util:properties id="context">
+        <prop key="personName">personName</prop>
+        <prop key="personAge">personAge</prop>
+    </util:properties>
+
+    <bean id="person" class="cn.pxl.convertion.entity.Person">
+        <property name="properties" >
+            <value>
+                personName=pxl
+                personAge=22
+            </value>
+        </property>
+        <property name="propertiesAsString" ref="context"/>
+    </bean>
+
+</beans>

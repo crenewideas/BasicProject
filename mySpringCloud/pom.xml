@@ -26,6 +26,7 @@
         <module>mq-consumer</module>
         <module>mq-publisher</module>
         <module>hotel-demo</module>
+        <module>hotel-admin</module>
     </modules>
 
     <properties>

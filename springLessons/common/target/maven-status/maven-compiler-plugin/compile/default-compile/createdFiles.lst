@@ -1,0 +1,4 @@
+cn/pxl/entity/User.class
+cn/pxl/entity/UserRepository.class
+cn/pxl/entity/SubUser.class
+cn/pxl/annotation/Sub.class

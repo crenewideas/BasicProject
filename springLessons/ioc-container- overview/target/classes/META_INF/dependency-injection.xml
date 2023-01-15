@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
+    <!--  导入其他配置文件的bean  -->
+    <import resource="dependency-look-up.xml"/>
+
+    <!-- 一：通过名称注入集合对象，util 的命名空间支持。这种方式是硬编码手动配置方式。 -->
+    <bean id="userRepositoryByName" class="cn.pxl.entity.UserRepository">
+        <property name="users">
+            <util:list>
+                <ref bean="user"/>
+                <ref bean="subUser"/>
+            </util:list>
+        </property>
+    </bean>
+
+    <!--  二：通过类型自动注入集合对象,如果有多个相同类型的 bean，并且属性是Collection类型，则会将符合条件的所有 bean 都注入到 Collection 中。  -->
+    <!--  例如：private Collection<User> users 会注入所有的User 类型的bean  -->
+    <!--  bean 定义的顺序就是添加到集合中的顺序，不能调整  -->
+    <bean id="userRepositoryByType" class="cn.pxl.entity.UserRepository" autowire="byType"/>
+
+    <!--  三：注入容器内建bean对象，如注入 BeanFactory 类型的对象  -->
+    <bean id="userRepositoryInjectionBeanFactory" class="cn.pxl.entity.UserRepository" autowire="byType"/>
+
+</beans>

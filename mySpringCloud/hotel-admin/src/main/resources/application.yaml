@@ -1,0 +1,23 @@
+server:
+  port: 8099
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/pxlngu?useSSL=false
+    username: root
+    password: rootroot
+    driver-class-name: com.mysql.jdbc.Driver
+  rabbitmq:
+    host: 10.211.55.5 # rabbitMQ的ip地址
+    port: 5672 # 端口
+    username: guest
+    password: guest
+    virtual-host: /
+logging:
+  level:
+    cn.itcast: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: cn.pxl.hotel.pojo

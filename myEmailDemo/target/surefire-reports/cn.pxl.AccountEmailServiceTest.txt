@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: cn.pxl.AccountEmailServiceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in cn.pxl.AccountEmailServiceTest
+testSendEmail(cn.pxl.AccountEmailServiceTest)  Time elapsed: 0.016 s  <<< ERROR!
+java.lang.IllegalStateException: Could not start mail server smtp:127.0.0.1:25, try to set server startup timeout > 2000 via ServerSetup.setServerStartupTimeout(timeoutInMs) or -Dgreenmail.startup.timeout
+	at cn.pxl.AccountEmailServiceTest.startMailServer(AccountEmailServiceTest.java:23)
+

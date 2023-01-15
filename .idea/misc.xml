@@ -2,7 +2,9 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/demo06" />
+    <file type="web" url="file://$PROJECT_DIR$/mySpringBootDemo2" />
     <file type="web" url="file://$PROJECT_DIR$/spring_security_management" />
+    <file type="web" url="file://$PROJECT_DIR$/springLessons/bean-scope" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -23,6 +25,21 @@
         <option value="$PROJECT_DIR$/mySpringBootDemo/pom.xml" />
         <option value="$PROJECT_DIR$/myMavenPluginDemo/pom.xml" />
         <option value="$PROJECT_DIR$/atchetypeDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/mySpringBootDemo2/pom.xml" />
+        <option value="$PROJECT_DIR$/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/demoUser/pom.xml" />
+        <option value="$PROJECT_DIR$/demoProduct/pom.xml" />
+        <option value="$PROJECT_DIR$/../AdvancedProject/pom.xml" />
+        <option value="$PROJECT_DIR$/myAr/pom.xml" />
+        <option value="$PROJECT_DIR$/springLessons/pom.xml" />
+        <option value="$PROJECT_DIR$/mySpringBootDemo3/pom.xml" />
+        <option value="$PROJECT_DIR$/mySpringCloud/pom.xml" />
+        <option value="$PROJECT_DIR$/mySpringCloud/order-service/pom.xml" />
+        <option value="$PROJECT_DIR$/mySpringCloud/user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/mySpringCloud/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/mySpringCloud/feign-api/pom.xml" />
+        <option value="$PROJECT_DIR$/mySpringCloud/mq-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/mySpringCloud/mq-publisher/pom.xml" />
       </list>
     </option>
   </component>

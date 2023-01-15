@@ -10,47 +10,130 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="demoUser" />
+        <module name="data-binding" />
+        <module name="dependency-injection" />
+        <module name="Demo01DubbolUserServiceApi" />
+        <module name="hotel-demo" />
+        <module name="user-service" />
+        <module name="demo" />
+        <module name="eureka-server" />
+        <module name="myAr" />
+        <module name="feign-api" />
+        <module name="mySpirngDemo" />
+        <module name="configuration-metadata" />
+        <module name="myMavenPluginDemo" />
+        <module name="dependency-source" />
+        <module name="common" />
+        <module name="demoProduct" />
+        <module name="bean-lifecycle" />
+        <module name="event" />
+        <module name="atchetypeDemo" />
+        <module name="bean-scope" />
+        <module name="validation" />
+        <module name="consumer" />
+        <module name="Demo01DubboUserService" />
         <module name="myJVMDemo" />
+        <module name="resource" />
+        <module name="dependency-lookup" />
         <module name="myMavenDemo" />
         <module name="coreDemo1" />
         <module name="hadoopDemo" />
         <module name="designPatternDemo" />
         <module name="myJedisDemo" />
-        <module name="mySpirngDemo" />
-        <module name="myMavenPluginDemo" />
+        <module name="i18n" />
+        <module name="generic" />
+        <module name="ioc-container- overview" />
+        <module name="spirng-bean" />
         <module name="mySpringBootDemo" />
         <module name="mySpringBootDemo2" />
         <module name="coreDemo2" />
         <module name="myEmailDemo" />
+        <module name="mySpringBootDemo3" />
+        <module name="publisher" />
+        <module name="order-service" />
         <module name="commonDemo" />
         <module name="myThreadDemo" />
-        <module name="atchetypeDemo" />
+        <module name="convertion" />
+        <module name="hotel-admin" />
+        <module name="Demo01DubboOrderServicce" />
+        <module name="gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="atchetypeDemo" target="1.5" />
+      <module name="bean-lifecycle" target="1.8" />
+      <module name="bean-scope" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="common-utils" target="1.8" />
       <module name="commonDemo" target="1.7" />
+      <module name="configuration-metadata" target="1.8" />
+      <module name="consumer" target="1.8" />
+      <module name="convertion" target="1.8" />
       <module name="coreDemo1" target="1.8" />
       <module name="coreDemo2" target="8" />
+      <module name="data-binding" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="Demo01DubbolUserServiceApi" target="1.7" />
+      <module name="Demo01DubboOrderServicce" target="1.7" />
+      <module name="Demo01DubboUserService" target="1.7" />
+      <module name="demoProduct" target="1.8" />
+      <module name="demoUser" target="1.8" />
+      <module name="dependency-injection" target="1.8" />
+      <module name="dependency-lookup" target="1.8" />
+      <module name="dependency-source" target="1.8" />
       <module name="designPatternDemo" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="event" target="1.8" />
+      <module name="feign-api" target="1.8" />
+      <module name="gateway" target="1.8" />
+      <module name="generic" target="1.8" />
       <module name="hadoopDemo" target="1.8" />
-      <module name="myAtchetypeDemo" target="1.5" />
+      <module name="hotel-admin" target="1.8" />
+      <module name="hotel-demo" target="1.8" />
+      <module name="i18n" target="1.8" />
+      <module name="ioc-container- overview" target="1.8" />
+      <module name="myAr" target="8" />
       <module name="myEmailDemo" target="1.7" />
       <module name="myJedisDemo" target="1.8" />
       <module name="myJVMDemo" target="8" />
       <module name="myMavenDemo" target="8" />
       <module name="myMavenPluginDemo" target="8" />
-      <module name="mySpirngDemo" target="1.7" />
+      <module name="mySpirngDemo" target="1.8" />
       <module name="mySpringBootDemo" target="1.8" />
       <module name="mySpringBootDemo2" target="1.8" />
-      <module name="myThreadDemo" target="1.7" />
-      <module name="spring_security_management" target="1.8" />
+      <module name="mySpringBootDemo3" target="1.8" />
+      <module name="mySpringCloud" target="1.8" />
+      <module name="myThreadDemo" target="8" />
+      <module name="order-service" target="1.8" />
+      <module name="publisher" target="1.8" />
+      <module name="resource" target="1.8" />
+      <module name="spirng-bean" target="1.8" />
+      <module name="springLessons" target="1.7" />
+      <module name="user-service" target="1.8" />
+      <module name="validation" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Demo01DubbolUserServiceApi" options="-parameters" />
+      <module name="common-utils" options="-parameters" />
+      <module name="consumer" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="demoProduct" options="-parameters" />
+      <module name="demoUser" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="feign-api" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="hotel-admin" options="-parameters" />
+      <module name="hotel-demo" options="-parameters" />
       <module name="mySpringBootDemo" options="-parameters" />
       <module name="mySpringBootDemo2" options="-parameters" />
+      <module name="mySpringBootDemo3" options="-parameters" />
+      <module name="mySpringCloud" options="" />
+      <module name="order-service" options="-parameters" />
+      <module name="publisher" options="-parameters" />
+      <module name="user-service" options="-parameters" />
     </option>
   </component>
 </project>

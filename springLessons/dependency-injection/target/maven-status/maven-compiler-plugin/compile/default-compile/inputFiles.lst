@@ -1,0 +1,17 @@
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/injection/InjectByMyOwnAnnotation.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/entity/UserHolder.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/entity/City.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/annotation/InjectUser.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/injection/LazyAnnotationInjectionResolution.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/resource/ExternalDependencySourceDemo.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/injection/AnnotationConstructorInjection.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/resource/ResolvableDependencySourceDemo.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/injection/AwareInjection.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/injection/AnnotationApiSetterInjection.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/injection/XmlApiSetterInjection.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/injection/XmlSetterInjection.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/annotation/MyAutoWired.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/injection/LazyAnnotationInjection.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/injection/XmlConstructorInjection.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/injection/AnnotationFieldInjection.java
+/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/springLessons/dependency-injection/src/main/java/cn/pxl/dependency/injection/AnnotationSetterInjection.java

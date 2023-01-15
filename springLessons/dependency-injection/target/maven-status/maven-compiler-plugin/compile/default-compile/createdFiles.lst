@@ -1,0 +1,17 @@
+cn/pxl/dependency/injection/AnnotationFieldInjection.class
+cn/pxl/dependency/entity/UserHolder.class
+cn/pxl/dependency/injection/XmlApiSetterInjection.class
+cn/pxl/dependency/injection/XmlSetterInjection.class
+cn/pxl/dependency/annotation/InjectUser.class
+cn/pxl/dependency/injection/LazyAnnotationInjection.class
+cn/pxl/dependency/injection/LazyAnnotationInjectionResolution.class
+cn/pxl/dependency/injection/AnnotationApiSetterInjection.class
+cn/pxl/dependency/resource/ResolvableDependencySourceDemo.class
+cn/pxl/dependency/injection/AwareInjection.class
+cn/pxl/dependency/injection/AnnotationSetterInjection.class
+cn/pxl/dependency/injection/InjectByMyOwnAnnotation.class
+cn/pxl/dependency/resource/ExternalDependencySourceDemo.class
+cn/pxl/dependency/annotation/MyAutoWired.class
+cn/pxl/dependency/entity/City.class
+cn/pxl/dependency/injection/AnnotationConstructorInjection.class
+cn/pxl/dependency/injection/XmlConstructorInjection.class

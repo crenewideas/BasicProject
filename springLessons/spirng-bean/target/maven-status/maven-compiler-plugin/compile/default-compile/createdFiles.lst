@@ -1,0 +1,15 @@
+cn/pxl/factory/InitialUserFactory.class
+cn/pxl/entity/User.class
+cn/pxl/factory/UserFactoryBean.class
+cn/pxl/bean/definition/BeanDefinitionConstructDemo.class
+cn/pxl/bean/name/NameGenerateDemo.class
+cn/pxl/bean/creation/BeanInstanceDemo.class
+cn/pxl/App.class
+cn/pxl/bean/initial/InitialBeanDemo.class
+cn/pxl/bean/creation/BeanSpecialInstanceDemo.class
+cn/pxl/bean/definition/AnnotationBeanDefinitionDemo$Config.class
+cn/pxl/bean/definition/AnnotationBeanDefinitionDemo.class
+cn/pxl/factory/UserFactory.class
+cn/pxl/bean/destory/DestroyDemo.class
+cn/pxl/bean/name/AliasNameDemo.class
+cn/pxl/factory/UserFactorySpecialIntf.class

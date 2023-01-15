@@ -2,13 +2,38 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/BasicProject.iml" filepath="$PROJECT_DIR$/.idea/BasicProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../AdvancedProject/Demo01DubboOrderServicce/Demo01DubboOrderServicce.iml" filepath="$PROJECT_DIR$/../AdvancedProject/Demo01DubboOrderServicce/Demo01DubboOrderServicce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../AdvancedProject/Demo01DubboUserService/Demo01DubboUserService.iml" filepath="$PROJECT_DIR$/../AdvancedProject/Demo01DubboUserService/Demo01DubboUserService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../AdvancedProject/Demo01DubbolUserServiceApi/Demo01DubbolUserServiceApi.iml" filepath="$PROJECT_DIR$/../AdvancedProject/Demo01DubbolUserServiceApi/Demo01DubbolUserServiceApi.iml" />
       <module fileurl="file://$PROJECT_DIR$/atchetypeDemo/atchetypeDemo.iml" filepath="$PROJECT_DIR$/atchetypeDemo/atchetypeDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/bean-lifecycle/bean-lifecycle.iml" filepath="$PROJECT_DIR$/springLessons/bean-lifecycle/bean-lifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/bean-scope/bean-scope.iml" filepath="$PROJECT_DIR$/springLessons/bean-scope/bean-scope.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/common/common.iml" filepath="$PROJECT_DIR$/springLessons/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonDemo/commonDemo.iml" filepath="$PROJECT_DIR$/commonDemo/commonDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/configuration-metadata/configuration-metadata.iml" filepath="$PROJECT_DIR$/springLessons/configuration-metadata/configuration-metadata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/mq-consumer/consumer.iml" filepath="$PROJECT_DIR$/mySpringCloud/mq-consumer/consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/convertion/convertion.iml" filepath="$PROJECT_DIR$/springLessons/convertion/convertion.iml" />
       <module fileurl="file://$PROJECT_DIR$/coreDemo1/coreDemo1.iml" filepath="$PROJECT_DIR$/coreDemo1/coreDemo1.iml" />
       <module fileurl="file://$PROJECT_DIR$/coreDemo2/coreDemo2.iml" filepath="$PROJECT_DIR$/coreDemo2/coreDemo2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/data-binding/data-binding.iml" filepath="$PROJECT_DIR$/springLessons/data-binding/data-binding.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demoProduct/demoProduct.iml" filepath="$PROJECT_DIR$/demoProduct/demoProduct.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demoUser/demoUser.iml" filepath="$PROJECT_DIR$/demoUser/demoUser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/dependency-injection/dependency-injection.iml" filepath="$PROJECT_DIR$/springLessons/dependency-injection/dependency-injection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/dependency-lookup/dependency-lookup.iml" filepath="$PROJECT_DIR$/springLessons/dependency-lookup/dependency-lookup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/dependency-source/dependency-source.iml" filepath="$PROJECT_DIR$/springLessons/dependency-source/dependency-source.iml" />
       <module fileurl="file://$PROJECT_DIR$/designPatternDemo/designPatternDemo.iml" filepath="$PROJECT_DIR$/designPatternDemo/designPatternDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/mySpringCloud/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/event/event.iml" filepath="$PROJECT_DIR$/springLessons/event/event.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/feign-api/feign-api.iml" filepath="$PROJECT_DIR$/mySpringCloud/feign-api/feign-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/gateway/gateway.iml" filepath="$PROJECT_DIR$/mySpringCloud/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/generic/generic.iml" filepath="$PROJECT_DIR$/springLessons/generic/generic.iml" />
       <module fileurl="file://$PROJECT_DIR$/hadoopDemo/hadoopDemo.iml" filepath="$PROJECT_DIR$/hadoopDemo/hadoopDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/hotel-admin/hotel-admin.iml" filepath="$PROJECT_DIR$/mySpringCloud/hotel-admin/hotel-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/hotel-demo/hotel-demo.iml" filepath="$PROJECT_DIR$/mySpringCloud/hotel-demo/hotel-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/i18n/i18n.iml" filepath="$PROJECT_DIR$/springLessons/i18n/i18n.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/ioc-container- overview/ioc-container- overview.iml" filepath="$PROJECT_DIR$/springLessons/ioc-container- overview/ioc-container- overview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myAr/myAr.iml" filepath="$PROJECT_DIR$/myAr/myAr.iml" />
       <module fileurl="file://$PROJECT_DIR$/myEmailDemo/myEmailDemo.iml" filepath="$PROJECT_DIR$/myEmailDemo/myEmailDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/myJVMDemo/myJVMDemo.iml" filepath="$PROJECT_DIR$/myJVMDemo/myJVMDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/myJedisDemo/myJedisDemo.iml" filepath="$PROJECT_DIR$/myJedisDemo/myJedisDemo.iml" />
@@ -16,8 +41,18 @@
       <module fileurl="file://$PROJECT_DIR$/myMavenPluginDemo/myMavenPluginDemo.iml" filepath="$PROJECT_DIR$/myMavenPluginDemo/myMavenPluginDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/mySpirngDemo/mySpirngDemo.iml" filepath="$PROJECT_DIR$/mySpirngDemo/mySpirngDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/mySpringBootDemo/mySpringBootDemo.iml" filepath="$PROJECT_DIR$/mySpringBootDemo/mySpringBootDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringBootDemo2/mySpringBootDemo2.iml" filepath="$PROJECT_DIR$/mySpringBootDemo2/mySpringBootDemo2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringBootDemo3/mySpringBootDemo3.iml" filepath="$PROJECT_DIR$/mySpringBootDemo3/mySpringBootDemo3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/mySpringCloud.iml" filepath="$PROJECT_DIR$/mySpringCloud/mySpringCloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/myThreadDemo/myThreadDemo.iml" filepath="$PROJECT_DIR$/myThreadDemo/myThreadDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/order-service/order-service.iml" filepath="$PROJECT_DIR$/mySpringCloud/order-service/order-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/mq-publisher/publisher.iml" filepath="$PROJECT_DIR$/mySpringCloud/mq-publisher/publisher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/resource/resource.iml" filepath="$PROJECT_DIR$/springLessons/resource/resource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/spirng-bean/spirng-bean.iml" filepath="$PROJECT_DIR$/springLessons/spirng-bean/spirng-bean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/springLessons.iml" filepath="$PROJECT_DIR$/springLessons/springLessons.iml" />
       <module fileurl="file://$PROJECT_DIR$/../threadDemo/threadDemo.iml" filepath="$PROJECT_DIR$/../threadDemo/threadDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/user-service/user-service.iml" filepath="$PROJECT_DIR$/mySpringCloud/user-service/user-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springLessons/validation/validation.iml" filepath="$PROJECT_DIR$/springLessons/validation/validation.iml" />
     </modules>
   </component>
 </project>

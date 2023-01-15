@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="cn.pxl.AccountEmailServiceTest" time="0.016" tests="1" errors="1" skipped="0" failures="0">
+  <properties>
+    <property name="gopherProxySet" value="false"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/myEmailDemo/target/test-classes:/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/myEmailDemo/target/classes:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/junit/junit/4.11/junit-4.11.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/javax/mail/mail/1.4.7/mail-1.4.7.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/javax/activation/activation/1.1/activation-1.1.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/com/icegreen/greenmail/1.6.10/greenmail-1.6.10.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/com/sun/mail/jakarta.mail/1.6.7/jakarta.mail-1.6.7.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/com/sun/activation/jakarta.activation/1.2.1/jakarta.activation-1.2.1.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-beans/5.3.22/spring-beans-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-context/5.3.22/spring-context-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-aop/5.3.22/spring-aop-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-expression/5.3.22/spring-expression-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-context-support/5.3.22/spring-context-support-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar:"/>
+    <property name="java.vm.vendor" value="Azul Systems, Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://www.azul.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib"/>
+    <property name="sun.java.command" value="/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/myEmailDemo/target/surefire/surefirebooter3137852035081534407.jar /Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/myEmailDemo/target/surefire 2022-09-30T16-35-43_790-jvmRun1 surefire3124538875038791390tmp surefire_06638197128783926383tmp"/>
+    <property name="surefire.test.class.path" value="/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/myEmailDemo/target/test-classes:/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/myEmailDemo/target/classes:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/junit/junit/4.11/junit-4.11.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/javax/mail/mail/1.4.7/mail-1.4.7.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/javax/activation/activation/1.1/activation-1.1.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/com/icegreen/greenmail/1.6.10/greenmail-1.6.10.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/com/sun/mail/jakarta.mail/1.6.7/jakarta.mail-1.6.7.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/com/sun/activation/jakarta.activation/1.2.1/jakarta.activation-1.2.1.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-beans/5.3.22/spring-beans-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-context/5.3.22/spring-context-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-aop/5.3.22/spring-aop-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-expression/5.3.22/spring-expression-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/springframework/spring-context-support/5.3.22/spring-context-support-5.3.22.jar:/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/pengxiaoliang"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre"/>
+    <property name="basedir" value="/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/myEmailDemo"/>
+    <property name="file.separator" value="/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="jdk.vendor.version" value="Zulu 8.64.0.15-CA-macos-aarch64"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/myEmailDemo/target/surefire/surefirebooter3137852035081534407.jar"/>
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/cat.jar:/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_342-b07"/>
+    <property name="user.name" value="pengxiaoliang"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="12.5.1"/>
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory"/>
+    <property name="java.vendor.url.bug" value="http://www.azul.com/support/"/>
+    <property name="java.io.tmpdir" value="/var/folders/7t/81shypd5509gtcr6m2b9719c0000gn/T/"/>
+    <property name="idea.version" value="2021.1.3"/>
+    <property name="java.version" value="1.8.0_342"/>
+    <property name="user.dir" value="/Users/pengxiaoliang/IdeaProjects/IdeaProject/Basic/Project01/BasicProject/myEmailDemo"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/Users/pengxiaoliang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Azul Systems, Inc."/>
+    <property name="java.vm.version" value="25.342-b07"/>
+    <property name="java.ext.dirs" value="/Users/pengxiaoliang/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="maven.repo.local" value="/opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="testSendEmail" classname="cn.pxl.AccountEmailServiceTest" time="0.016">
+    <error message="Could not start mail server smtp:127.0.0.1:25, try to set server startup timeout &gt; 2000 via ServerSetup.setServerStartupTimeout(timeoutInMs) or -Dgreenmail.startup.timeout" type="java.lang.IllegalStateException">java.lang.IllegalStateException: Could not start mail server smtp:127.0.0.1:25, try to set server startup timeout > 2000 via ServerSetup.setServerStartupTimeout(timeoutInMs) or -Dgreenmail.startup.timeout
+	at cn.pxl.AccountEmailServiceTest.startMailServer(AccountEmailServiceTest.java:23)
+</error>
+    <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Exception in thread "smtp:127.0.0.1:25" java.lang.IllegalStateException: Can not open server socket for smtp:127.0.0.1:25
+	at com.icegreen.greenmail.server.AbstractServer.initServerSocket(AbstractServer.java:123)
+	at com.icegreen.greenmail.server.AbstractServer.run(AbstractServer.java:94)
+Caused by: java.net.BindException: Permission denied (Bind failed)
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.ServerSocket.bind(ServerSocket.java:395)
+	at java.net.ServerSocket.bind(ServerSocket.java:349)
+	at com.icegreen.greenmail.server.AbstractServer.openServerSocket(AbstractServer.java:74)
+	at com.icegreen.greenmail.server.AbstractServer.initServerSocket(AbstractServer.java:118)
+	... 1 more
+]]></system-err>
+  </testcase>
+</testsuite>
