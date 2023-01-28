@@ -10,8 +10,8 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   cloud:
     nacos:
-      server-addr: 10.211.55.5:80
-#      server-addr: 192.168.0.103:8083
+#      server-addr: 10.211.55.5:80
+      server-addr: localhost:8843
       discovery:
         #集群名称，多个服务属于同一个集群
         cluster-name: HN

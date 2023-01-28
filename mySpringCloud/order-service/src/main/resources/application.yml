@@ -9,8 +9,13 @@ spring:
     password: rootroot
     driver-class-name: com.mysql.jdbc.Driver
   cloud:
+    sentinel:
+      web-context-unify: false # 关闭context整合，如果不关闭，簇点链路 中 流控模式-链路 显示就会有问题。
+      transport:
+        dashboard: 10.211.55.5:8090
     nacos:
-      server-addr: 10.211.55.5:80
+      server-addr: 192.168.0.103:8843
+#      server-addr: 10.211.55.5:80
       discovery:
         #集群名称，多个服务属于同一个集群时，优先访问集群内部服务。
         cluster-name: HN
@@ -35,6 +40,8 @@ logging:
 #      defaultZone: http://192.168.0.103:10086/eureka
 
 feign:
+  sentinel:
+    enabled: true # 开启feign对sentinel的支持，微服务远程调用都是基于Feign来完成的，因此我们需要将Feign与Sentinel整合，在Feign里面实现线程隔离和服务熔断。
   client:
     config:
       # 包含四种不同的级别：NONE、BASIC、HEADERS、FULL
