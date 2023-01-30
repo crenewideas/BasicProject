@@ -36,6 +36,7 @@ public class HJ8 {
                     oneMap.put(key,value);
                 }
             }
+
         }
         scanner.close();
         List<Integer> sortedKey = oneMap.keySet().stream().sorted().collect(Collectors.toList());
