@@ -1,33 +1,88 @@
 package cn.pxl.niuke;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+//HJ19 简单错误记录
+//开发一个简单错误记录功能小模块，能够记录出错的代码所在的文件名称和行号。
 
-//HJ18 识别有效的IP地址和掩码并进行分类统计
-//请解析IP地址和对应的掩码，进行分类识别。要求按照 A/B/C/D/E 类地址归类，不合法的地址和掩码单独归类。
+//1、 记录最多8条错误记录，循环记录，最后只用输出最后出现的八条错误记录。对相同的错误记录只记录一条，但是错误计数增加。最后一个斜杠后面的带后缀名的部分（保留最后16位）和行号完全匹配的记录才做算是“相同”的错误记录。
+//2、 超过16个字符的文件名称，只记录文件的最后有效16个字符；
+//3、 输入的文件可能带路径，记录文件名称不能带路径。也就是说，哪怕不同路径下的文件，如果它们的名字的后16个字符相同，也被视为相同的错误记录
+//4、循环记录时，只以第一次出现的顺序为准，后面重复的不会更新它的出现时间，仍以第一次为准
+//输入描述：每组只包含一个测试用例。一个测试用例包含一行或多行字符串。每行包括带路径文件名称，行号，以空格隔开
+//输出描述：将所有的记录统计并将结果输出，格式：文件名 代码行数 数目，一个空格隔开
 
-//所有的IP地址划分为 A,B,C,D,E 五类
-//A类地址从 1.0.0.0   到 126.255.255.255;
-//B类地址从 128.0.0.0 到 191.255.255.255;
-//C类地址从 192.0.0.0 到 223.255.255.255;
-//D类地址从 224.0.0.0 到 239.255.255.255；
-//E类地址从 240.0.0.0 到 255.255.255.255
-
-//私网IP范围是：
-//从10.0.0.0到10.255.255.255
-//从172.16.0.0到172.31.255.255
-//从192.168.0.0到192.168.255.255
-
-//输入描述：多行字符串。每行一个IP地址和掩码，用~隔开。
-//输出描述：统计A、B、C、D、E、错误IP地址或错误掩码、私有IP的个数，之间以空格隔开。
+import java.util.*;
 
 public class HJ19 {
     public static void main(String[] args) {
-        String str = "1...1";
-        String[] split = str.split("\\.");
-        for (String s : split) {
-            System.out.println(s);
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> arrayList = new ArrayList<>();
+        while (scanner.hasNextLine()) {
+            String nextLine = scanner.nextLine();
+            arrayList.add(nextLine);
+        }
+        //先后顺序一定的key集合
+        LinkedList<String> sortedKeys = new LinkedList<>();
+        //存放已经被循环删除的key，之后再有相同的数据，也不会再记录了
+        ArrayList<String> removedKeys = new ArrayList<>();
+        HashMap<String, Integer> fullNameAndNumber = new HashMap<>();
+        HashMap<String, Integer> nameAndNumber = new HashMap<>();
+//        String a = "D:\\zwtymj\\xccb\\ljj\\cqzlyaszjvlsjmkwoqijggmybr 645";
+//        String b = "E:\\je\\rzuwnjvnuz 633";
+//        String c = "C:\\km\\tgjwpb\\gy\\atl 637";
+//        String d = "F:\\weioj\\hadd\\connsh\\rwyfvzsopsuiqjnr 647";
+//        String e = "E:\\ns\\mfwj\\wqkoki\\eez 648";
+//        String f = "D:\\cfmwafhhgeyawnool 649";
+//        String g = "E:\\czt\\opwip\\osnll\\c 637";
+//        String h = "G:\\nt\\f 633";
+//        String i = "F:\\fop\\ywzqaop 631";
+//        String j = "F:\\yay\\jc\\ywzqaop 631";
+//        String k = "D:\\zwtymj\\xccb\\ljj\\cqzlyaszjvlsjmkwoqijggmybr 645";
+//        ArrayList<String> arrayList = new ArrayList<>();
+//        arrayList.add(a);
+//        arrayList.add(b);
+//        arrayList.add(c);
+//        arrayList.add(d);
+//        arrayList.add(e);
+//        arrayList.add(f);
+//        arrayList.add(g);
+//        arrayList.add(h);
+//        arrayList.add(i);
+//        arrayList.add(j);
+//        arrayList.add(k);
+        for (String oneStr : arrayList) {
+            String[] splits = oneStr.split(" ");
+            String fullName = splits[0];
+            String numberStr = splits[1];
+            //对全名称截取
+            String[] nameStr = fullName.split("\\\\");
+            String name =  nameStr[nameStr.length - 1];
+            if(name.length() > 16){
+                name = name.substring(name.length() - 16);
+            }
+            String mapKey = name + "-" + numberStr;
+            if(removedKeys.contains(mapKey)) continue;
+            if(!fullNameAndNumber.containsKey(mapKey)){
+                fullNameAndNumber.put(mapKey,1);
+                sortedKeys.add(mapKey);
+            } else {
+                Integer integer = fullNameAndNumber.get(mapKey);
+                fullNameAndNumber.put(mapKey,++integer);
+            }
+            if (fullNameAndNumber.size() > 8) {
+                String removeStr = sortedKeys.remove(0);
+                fullNameAndNumber.remove(removeStr);
+                removedKeys.add(removeStr);
+            }
+        }
+
+        for (String sortedKey : sortedKeys) {
+            Integer count = fullNameAndNumber.get(sortedKey);
+            String[] split = sortedKey.split("-");
+            String name = split[0];
+            String lineNumber = split[1];
+            System.out.println(name + " " + lineNumber + " " + count);
         }
     }
-
 }
+
+
