@@ -1,19 +1,16 @@
 package cn.pxl.niuke;
 
-//HJ22 某商店规定：三个空汽水瓶可以换一瓶汽水，允许向老板借空汽水瓶（但是必须要归还）。
-//小张手上有n个空汽水瓶，她想知道自己最多可以喝到多少瓶汽水。
-//数据范围：输入的正整数满足 1 \le n \le 100 \1≤n≤100
-
-//输入描述：输入文件最多包含 10 组测试数据，每个数据占一行，仅包含一个正整数 n（ 1<=n<=100 ），表示小张手上的空汽水瓶数。n=0 表示输入结束，你的程序不应当处理这一行。
-//输出描述：对于每组测试数据，输出一行，表示最多可以喝的汽水瓶数。如果一瓶也喝不到，输出0。
+//HJ23 实现删除字符串中出现次数最少的字符，若出现次数最少的字符有多个，则把出现次数最少的字符都删除。输出删除这些单词后的字符串，字符串中其它字符保持原来的顺序。
+//数据范围：输入的字符串长度满足 1≤n≤20  ，保证输入的字符串中仅出现小写字母
+//输入描述：字符串只包含小写英文字母, 不考虑非法输入，输入的字符串长度小于等于20个字节。
+//输出描述：删除字符串中出现次数最少的字符后的字符串。
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
-public class HJ22 {
+public class HJ23 {
 
     public static void main(String[] args) throws IOException {
 
@@ -34,10 +31,45 @@ public class HJ22 {
         }
 
         for (int i = 0; i < arrayList.size(); i++) {
-            int count = Integer.parseInt(arrayList.get(i));
-            if(count == 0 ) continue;
-            System.out.println(count / 2);
+            //key：字符。
+            //value:出现的次数。
+            HashMap<Character,Integer> resultMap = new HashMap<>();
+            String oneStr = arrayList.get(i);
+            char[] chars = oneStr.toCharArray();
+            for (char aChar : chars) {
+                if (resultMap.containsKey(aChar)) {
+                    resultMap.put(aChar,resultMap.get(aChar) + 1);
+                }else {
+                    resultMap.put(aChar,1);
+                }
+            }
+            //转换map为以次数开头，并取 key 的最小值。
+            HashMap<Integer, ArrayList<Character>> convertMap = new HashMap<>();
+            int minKey = Integer.MAX_VALUE;
+            for (Map.Entry<Character, Integer> oneEntry : resultMap.entrySet()) {
+                Character key = oneEntry.getKey();
+                Integer value = oneEntry.getValue();
+                if(convertMap.containsKey(value)){
+                    ArrayList<Character> characters = convertMap.get(value);
+                    characters.add(key);
+                    convertMap.put(value,characters);
+                } else {
+                    ArrayList<Character> characters = new ArrayList<>();
+                    characters.add(key);
+                    convertMap.put(value,characters);
+                }
+                if(minKey > value) minKey = value;
+            }
+
+            //最小key的集合
+            ArrayList<Character> characters = convertMap.get(minKey);
+            for (Character character : characters) {
+                //替换掉
+                oneStr = oneStr.replace(character.toString(),"");
+            }
+            System.out.println(oneStr);
         }
+
     }
 }
 

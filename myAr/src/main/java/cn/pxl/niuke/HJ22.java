@@ -1,9 +1,11 @@
 package cn.pxl.niuke;
 
-//HJ21 现在有一种密码变换算法。
-//九键手机键盘上的数字与字母的对应： 1--1， abc--2, def--3, ghi--4, jkl--5, mno--6, pqrs--7, tuv--8 wxyz--9, 0--0，把密码中出现的小写字母都变成九键键盘对应的数字，如：a 变成 2，x 变成 9.
-//而密码中出现的大写字母则变成小写之后往后移一位，如：X ，先变成小写，再往后移一位，变成了 y ，例外：Z 往后移是 a 。
-//数字和其它的符号都不做变换。
+//HJ22 某商店规定：三个空汽水瓶可以换一瓶汽水，允许向老板借空汽水瓶（但是必须要归还）。
+//小张手上有n个空汽水瓶，她想知道自己最多可以喝到多少瓶汽水。
+//数据范围：输入的正整数满足 1 \le n \le 100 \1≤n≤100
+
+//输入描述：输入文件最多包含 10 组测试数据，每个数据占一行，仅包含一个正整数 n（ 1<=n<=100 ），表示小张手上的空汽水瓶数。n=0 表示输入结束，你的程序不应当处理这一行。
+//输出描述：对于每组测试数据，输出一行，表示最多可以喝的汽水瓶数。如果一瓶也喝不到，输出0。
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,9 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class HJ21 {
-    private static final String OK = "OK";
-    private static final String NG = "NG";
+public class HJ22 {
+
     public static void main(String[] args) throws IOException {
 
 //        ArrayList<String> arrayList = new ArrayList<>();
@@ -32,58 +33,11 @@ public class HJ21 {
             arrayList.add(nextLine);
         }
 
-        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < arrayList.size(); i++) {
-            String oneStr = arrayList.get(i);
-            for (char aChar : oneStr.toCharArray()) {
-                builder.append(convert(aChar));
-            }
+            int count = Integer.parseInt(arrayList.get(i));
+            if(count == 0 ) continue;
+            System.out.println(count / 2);
         }
-        System.out.println(builder);
-    }
-
-    private static String convert(char aChar){
-        //abc
-        if(aChar >= 97 && aChar < 100){
-            return "2";
-        //def
-        }else if(aChar >= 100 && aChar < 103){
-            return "3";
-
-        //ghi
-        }else if(aChar >= 103 && aChar < 106){
-            return "4";
-
-        //jkl
-        }else if(aChar >= 106 && aChar < 109){
-            return "5";
-
-        //mno
-        }else if(aChar >= 109 && aChar < 112){
-            return "6";
-
-        //pqrs
-        }else if(aChar >= 112 && aChar < 116){
-            return "7";
-
-        //tuv
-        }else if(aChar >= 116 && aChar < 119){
-            return "8";
-
-        //wxyz
-        }else if(aChar >= 119 && aChar < 123){
-            return "9";
-        }else if(aChar >= 48 && aChar <= 57){
-            return String.valueOf(aChar);
-        }else if(aChar >= 65 && aChar < 90){
-            return String.valueOf((char)((int) aChar + 33));
-            //Z
-        }else if(aChar == 90){
-            return "a";
-        }
-
-//        abc--2, def--3, ghi--4, jkl--5, mno--6, pqrs--7, tuv--8 wxyz--9
-        return "";
     }
 }
 

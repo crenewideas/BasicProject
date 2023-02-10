@@ -1,18 +1,17 @@
 package cn.pxl.niuke;
 
-//HJ20 密码验证合格程序
-//密码要求:
-//        1.长度超过8位
-//        2.包括大小写字母.数字.其它符号,以上四种至少三种
-//        3.不能有长度大于2的包含公共元素的子串重复 （注：其他符号不含空格或换行）
+//HJ21 现在有一种密码变换算法。
+//九键手机键盘上的数字与字母的对应： 1--1， abc--2, def--3, ghi--4, jkl--5, mno--6, pqrs--7, tuv--8 wxyz--9, 0--0，把密码中出现的小写字母都变成九键键盘对应的数字，如：a 变成 2，x 变成 9.
+//而密码中出现的大写字母则变成小写之后往后移一位，如：X ，先变成小写，再往后移一位，变成了 y ，例外：Z 往后移是 a 。
+//数字和其它的符号都不做变换。
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class HJ20 {
-    private static final String OK = "OK";
-    private static final String NG = "NG";
+public class HJ21 {
     public static void main(String[] args) throws IOException {
 
 //        ArrayList<String> arrayList = new ArrayList<>();
@@ -30,69 +29,60 @@ public class HJ20 {
             String nextLine = scanner.nextLine();
             arrayList.add(nextLine);
         }
-        ArrayList<String> resultList = new ArrayList<>();
-        ArrayList<Integer> typeCount = new ArrayList<>();
+
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < arrayList.size(); i++) {
             String oneStr = arrayList.get(i);
-            if(oneStr.length() <= 8 ) {
-                resultList.add(i,NG);
-                continue;
+            for (char aChar : oneStr.toCharArray()) {
+                builder.append(convert(aChar));
             }
-            char[] chars = oneStr.toCharArray();
-
-            boolean breakFlag = hasDuplicateStr(oneStr);
-
-            //没有被打断，说明连续子串校验通过
-            if(breakFlag) {
-                resultList.add(i,NG);
-                continue;
-            }else {
-                //四种的三种
-                for (int i1 = 0; i1 < chars.length; i1++) {
-                    char aChar = chars[i1];
-                    if(!typeCount.contains(0) && (aChar >= 65 && aChar <= 90)){
-                        typeCount.add(0);
-                    }else if(!typeCount.contains(1) && (aChar >= 48 && aChar <= 57)){
-                        typeCount.add(1);
-                    }else if(!typeCount.contains(2) && (aChar >= 97 && aChar <= 122)){
-                        typeCount.add(2);
-                    }else if(!typeCount.contains(3) && !(aChar >= 65 && aChar <= 90) && !(aChar >= 48 && aChar <= 57) && !(aChar >= 97 && aChar <= 122)){
-                        typeCount.add(3);
-                    }
-                }
-                if(typeCount.size() < 3){
-                    resultList.add(i,NG);
-                    typeCount.clear();
-                    continue;
-                }else {
-                    typeCount.clear();
-                }
-            }
-            resultList.add(i,OK);
         }
-
-        for (String s : resultList) {
-            System.out.println(s);
-        }
+        System.out.println(builder);
     }
 
-    //判断公共子串是否有重复
-    private static boolean hasDuplicateStr(String str){
-        if(str == null || str.length() < 5) return  false;
-        //首行3个没有重复，那么才递归调用，看偏移之后的是否有重复。
-        String firstStr = str.substring(0, 3);
-        String compareStr;
-        for (int i = 0; i < str.length() - 5; i++) {
-            compareStr = str.substring(i+3,i+6);
-            if(firstStr.equals(compareStr)) {
-                return true;
-            }
-        }
-        //到这里，说明没有重复子序列，那么递归。
-        str = str.substring(1);
-        return hasDuplicateStr(str);
-    }
+    private static String convert(char aChar){
+        //abc
+        if(aChar >= 97 && aChar < 100){
+            return "2";
+        //def
+        }else if(aChar >= 100 && aChar < 103){
+            return "3";
 
+        //ghi
+        }else if(aChar >= 103 && aChar < 106){
+            return "4";
+
+        //jkl
+        }else if(aChar >= 106 && aChar < 109){
+            return "5";
+
+        //mno
+        }else if(aChar >= 109 && aChar < 112){
+            return "6";
+
+        //pqrs
+        }else if(aChar >= 112 && aChar < 116){
+            return "7";
+
+        //tuv
+        }else if(aChar >= 116 && aChar < 119){
+            return "8";
+
+        //wxyz
+        }else if(aChar >= 119 && aChar < 123){
+            return "9";
+        }else if(aChar >= 48 && aChar <= 57){
+            return String.valueOf(aChar);
+        }else if(aChar >= 65 && aChar < 90){
+            return String.valueOf((char)((int) aChar + 33));
+            //Z
+        }else if(aChar == 90){
+            return "a";
+        }
+
+//        abc--2, def--3, ghi--4, jkl--5, mno--6, pqrs--7, tuv--8 wxyz--9
+        return "";
+    }
 }
 
 

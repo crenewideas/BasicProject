@@ -10,57 +10,61 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="demoUser" />
         <module name="data-binding" />
         <module name="dependency-injection" />
-        <module name="Demo01DubbolUserServiceApi" />
         <module name="hotel-demo" />
         <module name="user-service" />
-        <module name="demo" />
         <module name="eureka-server" />
-        <module name="myAr" />
-        <module name="feign-api" />
         <module name="mySpirngDemo" />
         <module name="configuration-metadata" />
         <module name="myMavenPluginDemo" />
         <module name="dependency-source" />
+        <module name="bean-lifecycle" />
+        <module name="account-service" />
+        <module name="validation" />
+        <module name="Demo01DubboUserService" />
+        <module name="resource" />
+        <module name="coreDemo1" />
+        <module name="designPatternDemo" />
+        <module name="i18n" />
+        <module name="spirng-bean" />
+        <module name="mySpringBootDemo" />
+        <module name="coreDemo2" />
+        <module name="myEmailDemo" />
+        <module name="publisher" />
+        <module name="order-service" />
+        <module name="myThreadDemo" />
+        <module name="convertion" />
+        <module name="demoUser" />
+        <module name="Demo01DubbolUserServiceApi" />
+        <module name="demo" />
+        <module name="myAr" />
+        <module name="feign-api" />
         <module name="common" />
         <module name="demoProduct" />
-        <module name="bean-lifecycle" />
         <module name="event" />
         <module name="atchetypeDemo" />
         <module name="bean-scope" />
-        <module name="validation" />
         <module name="consumer" />
-        <module name="Demo01DubboUserService" />
         <module name="myJVMDemo" />
-        <module name="resource" />
         <module name="dependency-lookup" />
         <module name="myMavenDemo" />
-        <module name="coreDemo1" />
         <module name="hadoopDemo" />
-        <module name="designPatternDemo" />
+        <module name="seataOrder-service" />
+        <module name="storage-service" />
         <module name="myJedisDemo" />
-        <module name="i18n" />
         <module name="generic" />
         <module name="ioc-container- overview" />
-        <module name="spirng-bean" />
-        <module name="mySpringBootDemo" />
         <module name="mySpringBootDemo2" />
-        <module name="coreDemo2" />
-        <module name="myEmailDemo" />
         <module name="mySpringBootDemo3" />
-        <module name="publisher" />
-        <module name="order-service" />
         <module name="commonDemo" />
-        <module name="myThreadDemo" />
-        <module name="convertion" />
         <module name="hotel-admin" />
         <module name="Demo01DubboOrderServicce" />
         <module name="gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="account-service" target="1.8" />
       <module name="atchetypeDemo" target="1.5" />
       <module name="bean-lifecycle" target="1.8" />
       <module name="bean-scope" target="1.8" />
@@ -106,10 +110,14 @@
       <module name="mySpringCloud" target="1.8" />
       <module name="myThreadDemo" target="8" />
       <module name="order-service" target="1.8" />
+      <module name="order-service (1) (cn.itcast.demo)" target="1.8" />
       <module name="publisher" target="1.8" />
       <module name="resource" target="1.8" />
+      <module name="seata-demo" target="1.8" />
+      <module name="seataOrder-service" target="1.8" />
       <module name="spirng-bean" target="1.8" />
       <module name="springLessons" target="1.7" />
+      <module name="storage-service" target="1.8" />
       <module name="user-service" target="1.8" />
       <module name="validation" target="1.8" />
     </bytecodeTargetLevel>
@@ -117,6 +125,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Demo01DubbolUserServiceApi" options="-parameters" />
+      <module name="account-service" options="-parameters" />
       <module name="common-utils" options="-parameters" />
       <module name="consumer" options="-parameters" />
       <module name="demo" options="-parameters" />
@@ -132,7 +141,10 @@
       <module name="mySpringBootDemo3" options="-parameters" />
       <module name="mySpringCloud" options="" />
       <module name="order-service" options="-parameters" />
+      <module name="order-service (1) (cn.itcast.demo)" options="-parameters" />
       <module name="publisher" options="-parameters" />
+      <module name="seataOrder-service" options="-parameters" />
+      <module name="storage-service" options="-parameters" />
       <module name="user-service" options="-parameters" />
     </option>
   </component>

@@ -1,17 +1,20 @@
 package cn.pxl.niuke;
 
-//HJ26 编写一个程序，将输入字符串中的字符按如下规则排序。
-//规则 1 ：英文字母从 A 到 Z 排列，不区分大小写。
-//如，输入： Type 输出： epTy
-//规则 2 ：同一个英文字母的大小写同时存在时，按照输入顺序排列。
-//如，输入： BabA 输出： aABb
-//规则 3 ：非英文字母的其它字符保持原来的位置。
-//如，输入： By?e 输出： Be?y
+//HJ27 定义一个单词的“兄弟单词”为：交换该单词字母顺序（注：可以交换任意次），而不添加、删除、修改原有的字母就能生成的单词。
+//兄弟单词要求和原来的单词不同。例如： ab 和 ba 是兄弟单词。 ab 和 ab 则不是兄弟单词。
+//现在给定你 n 个单词，另外再给你一个单词 x ，让你寻找 x 的兄弟单词里，按字典序排列后的第 k 个单词是什么？
+//注意：字典中可能有重复单词。
 
+//输入描述：输入只有一行。 先输入字典中单词的个数n，再输入n个单词作为字典单词。 然后输入一个单词x 最后后输入一个整数k
+//输出描述：第一行输出查找到x的兄弟单词的个数m 第二行输出查找到的按照字典顺序排序后的第k个兄弟单词，没有符合第k个的话则不用输出。
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
-public class HJ26 {
+public class HJ27 {
 
     public static void main(String[] args) throws IOException {
 
@@ -32,29 +35,62 @@ public class HJ26 {
         }
 
         for (String oneStr : arrayList) {
-            char[] chars = oneStr.toCharArray();
-            //收集字母
-            ArrayList<Character> letters = new ArrayList<>();
-            for (char aChar : chars) {
-                if(Character.isLetter(aChar)){
-                    letters.add(aChar);
-                }
-            }
-            //对字母进行排序
-            letters.sort(Comparator.comparingInt(Character::toLowerCase));
-            StringBuilder builder = new StringBuilder();
-            for (int i = 0,j = 0; i < chars.length; i++) {
-                char aChar = chars[i];
-                if(Character.isLetter(aChar)){
-                    //j表示的是第几个字符位置。
-                    builder.append(letters.get(j++));
+            String[] splits = oneStr.split(" ");
+            int count = Integer.parseInt(splits[0]);
+            String originStr = splits[count + 1];
+
+            //key:某一字符
+            //value:该字符在字符串中出现的次数
+            HashMap<Character, Integer> originMap = new HashMap<>();
+            for (char aChar : originStr.toCharArray()) {
+                if(originMap.containsKey(aChar)){
+                    originMap.put(aChar,originMap.get(aChar) + 1);
                 } else {
-                    //非字符，那么对应位置填入原来的值即可
-                    builder.append(chars[i]);
+                    originMap.put(aChar,1);
                 }
             }
-            System.out.println(builder);
+            int k = Integer.parseInt(splits[count + 2]);
+            ArrayList<String> brotherList = new ArrayList<>();
+            for (int i = 1; i <= count; i++) {
+                //key:某一字符
+                //value:该字符在字符串中出现的次数
+                HashMap<Character, Integer> resultMap = new HashMap<>();
+                String splitStr = splits[i];
+                for (char aChar : splitStr.toCharArray()) {
+                    if(resultMap.containsKey(aChar)){
+                        resultMap.put(aChar,resultMap.get(aChar) + 1);
+                    } else {
+                        resultMap.put(aChar,1);
+                    }
+                }
+                //判断是否所有key，value均相同，如果相同，并且原字符串不相等，那么属于同一兄弟。
+                if(resultMap.size() != originMap.size()) continue;
+                if(splitStr.equals(originStr)) continue;
+                boolean isBrother = true;
+                for (Map.Entry<Character, Integer> oneEntry : resultMap.entrySet()) {
+                    Character oneEntryKey = oneEntry.getKey();
+                    Integer oneEntryValue = oneEntry.getValue();
+                    if(!originMap.containsKey(oneEntryKey)) {
+                        isBrother = false;
+                        break;
+                    }else if(!oneEntryValue.equals(originMap.get(oneEntryKey))){
+                        isBrother = false;
+                        break;
+                    }
+                }
+
+                //如果是兄弟元素
+                if(isBrother){
+                    brotherList.add(splitStr);
+                }
+
+            }
+            System.out.println(brotherList.size());
+            List<String> sortedStr = brotherList.stream().sorted().collect(Collectors.toList());
+            if(sortedStr.size() < k) return;
+            System.out.println(sortedStr.get(k - 1));
         }
+
     }
 }
 

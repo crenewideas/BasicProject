@@ -35,6 +35,9 @@
     <file url="file://$PROJECT_DIR$/mySpringCloud/mq-consumer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mySpringCloud/mq-publisher/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mySpringCloud/order-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mySpringCloud/seata-demo/account-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mySpringCloud/seata-demo/seataOrder-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mySpringCloud/seata-demo/storage-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mySpringCloud/user-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/myThreadDemo/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springLessons/bean-lifecycle/src/main/java" charset="UTF-8" />

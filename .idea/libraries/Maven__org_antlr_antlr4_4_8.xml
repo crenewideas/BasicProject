@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.antlr:antlr4:4.8">
+    <CLASSES>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/antlr/antlr4/4.8/antlr4-4.8.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/antlr/antlr4/4.8/antlr4-4.8-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/org/antlr/antlr4/4.8/antlr4-4.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

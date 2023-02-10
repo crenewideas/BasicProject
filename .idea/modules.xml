@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/../AdvancedProject/Demo01DubboOrderServicce/Demo01DubboOrderServicce.iml" filepath="$PROJECT_DIR$/../AdvancedProject/Demo01DubboOrderServicce/Demo01DubboOrderServicce.iml" />
       <module fileurl="file://$PROJECT_DIR$/../AdvancedProject/Demo01DubboUserService/Demo01DubboUserService.iml" filepath="$PROJECT_DIR$/../AdvancedProject/Demo01DubboUserService/Demo01DubboUserService.iml" />
       <module fileurl="file://$PROJECT_DIR$/../AdvancedProject/Demo01DubbolUserServiceApi/Demo01DubbolUserServiceApi.iml" filepath="$PROJECT_DIR$/../AdvancedProject/Demo01DubbolUserServiceApi/Demo01DubbolUserServiceApi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/seata-demo/account-service/account-service.iml" filepath="$PROJECT_DIR$/mySpringCloud/seata-demo/account-service/account-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/atchetypeDemo/atchetypeDemo.iml" filepath="$PROJECT_DIR$/atchetypeDemo/atchetypeDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/springLessons/bean-lifecycle/bean-lifecycle.iml" filepath="$PROJECT_DIR$/springLessons/bean-lifecycle/bean-lifecycle.iml" />
       <module fileurl="file://$PROJECT_DIR$/springLessons/bean-scope/bean-scope.iml" filepath="$PROJECT_DIR$/springLessons/bean-scope/bean-scope.iml" />
@@ -48,8 +49,11 @@
       <module fileurl="file://$PROJECT_DIR$/mySpringCloud/order-service/order-service.iml" filepath="$PROJECT_DIR$/mySpringCloud/order-service/order-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/mySpringCloud/mq-publisher/publisher.iml" filepath="$PROJECT_DIR$/mySpringCloud/mq-publisher/publisher.iml" />
       <module fileurl="file://$PROJECT_DIR$/springLessons/resource/resource.iml" filepath="$PROJECT_DIR$/springLessons/resource/resource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/seata-demo/seata-demo.iml" filepath="$PROJECT_DIR$/mySpringCloud/seata-demo/seata-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/seata-demo/seataOrder-service/seataOrder-service.iml" filepath="$PROJECT_DIR$/mySpringCloud/seata-demo/seataOrder-service/seataOrder-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/springLessons/spirng-bean/spirng-bean.iml" filepath="$PROJECT_DIR$/springLessons/spirng-bean/spirng-bean.iml" />
       <module fileurl="file://$PROJECT_DIR$/springLessons/springLessons.iml" filepath="$PROJECT_DIR$/springLessons/springLessons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mySpringCloud/seata-demo/storage-service/storage-service.iml" filepath="$PROJECT_DIR$/mySpringCloud/seata-demo/storage-service/storage-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/../threadDemo/threadDemo.iml" filepath="$PROJECT_DIR$/../threadDemo/threadDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/mySpringCloud/user-service/user-service.iml" filepath="$PROJECT_DIR$/mySpringCloud/user-service/user-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/springLessons/validation/validation.iml" filepath="$PROJECT_DIR$/springLessons/validation/validation.iml" />

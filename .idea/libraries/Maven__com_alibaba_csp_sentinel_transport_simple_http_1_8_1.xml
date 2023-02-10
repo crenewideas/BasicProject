@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.alibaba.csp:sentinel-transport-simple-http:1.8.1">
+    <CLASSES>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/com/alibaba/csp/sentinel-transport-simple-http/1.8.1/sentinel-transport-simple-http-1.8.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/com/alibaba/csp/sentinel-transport-simple-http/1.8.1/sentinel-transport-simple-http-1.8.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///opt/homebrew/Cellar/maven@3.5/3.5.4_1/libexec/repository/BasicProjectReopsitory/com/alibaba/csp/sentinel-transport-simple-http/1.8.1/sentinel-transport-simple-http-1.8.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
